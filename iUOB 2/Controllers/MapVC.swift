@@ -74,10 +74,11 @@ class MapVC: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate, UI
     
     func googleAnalytics() {
         
-        let tracker = GAI.sharedInstance().defaultTracker
-        tracker.set(kGAIScreenName, value: NSStringFromClass(self.dynamicType).componentsSeparatedByString(".").last!)
-        let builder = GAIDictionaryBuilder.createScreenView()
-        tracker.send(builder.build() as [NSObject : AnyObject])
+        if let tracker = GAI.sharedInstance().defaultTracker {
+            tracker.set(kGAIScreenName, value: NSStringFromClass(self.dynamicType).componentsSeparatedByString(".").last!)
+            let builder = GAIDictionaryBuilder.createScreenView()
+            tracker.send(builder.build() as [NSObject : AnyObject])
+        }
     }
 
     override func loadView() {

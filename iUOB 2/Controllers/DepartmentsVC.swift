@@ -70,10 +70,11 @@ class DepartmentsVC: UITableViewController {
     
     func googleAnalytics() {
         
-        let tracker = GAI.sharedInstance().defaultTracker
-        tracker.set(kGAIScreenName, value: NSStringFromClass(self.dynamicType).componentsSeparatedByString(".").last!)
-        let builder = GAIDictionaryBuilder.createScreenView()
-        tracker.send(builder.build() as [NSObject : AnyObject])
+        if let tracker = GAI.sharedInstance().defaultTracker {
+            tracker.set(kGAIScreenName, value: NSStringFromClass(self.dynamicType).componentsSeparatedByString(".").last!)
+            let builder = GAIDictionaryBuilder.createScreenView()
+            tracker.send(builder.build() as [NSObject : AnyObject])
+        }
     }
     
     // MARK: - Load Data
