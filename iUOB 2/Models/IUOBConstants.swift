@@ -12,7 +12,7 @@ import CoreLocation
 
 struct Constants {
     
-    static let baseURL = "https://www.online.uob.edu.bh"   // change for the domain you want e.g. uob :-]
+    static let baseURL = "https://www.something.edu.bh"   // change for the domain you want e.g. uob :-]
     
     static let sakheerLocation = Location(latitude: 26.051588, longitude: 50.513387)
     static let isaTownLocation = Location(latitude: 26.165126, longitude: 50.545274)
