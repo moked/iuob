@@ -13,15 +13,15 @@ import Kanna
 
 class UOBParser {
     
-    static func parseDepartments(html: String) -> [Department] {
+    static func parseDepartments(_ html: String) -> [Department] {
         
         var departments: [Department] = []
         
-        if let doc = Kanna.HTML(html: html, encoding: NSUTF8StringEncoding) {
+        if let doc = Kanna.HTML(html: html, encoding: String.Encoding.utf8) {
             
             for link in doc.xpath("//a") {
                 
-                if let depName = link.text, depURL = link["href"] {
+                if let depName = link.text, let depURL = link["href"] {
                     departments.append(Department(name: depName, url: "\(Constants.baseURL)/cgi/enr/\(depURL)"))
                 }
             }
@@ -30,7 +30,7 @@ class UOBParser {
         return departments
     }
     
-    static func parseCourses(html: String) -> [Course] {
+    static func parseCourses(_ html: String) -> [Course] {
         
         var courses = [Course]()
     
@@ -44,7 +44,7 @@ class UOBParser {
         var courseNo: String = ""
         var departmentCode: String = ""
 
-        if let doc = Kanna.HTML(html: html, encoding: NSUTF8StringEncoding) {
+        if let doc = Kanna.HTML(html: html, encoding: String.Encoding.utf8) {
             
             for link in doc.xpath("//a") {
                 
@@ -55,11 +55,16 @@ class UOBParser {
                         let macthes = matchesForRegexInText("\\(.*?\\)", text: courseLink)
                         
                         if macthes.count > 0 {
-                            var pre = macthes.first!.substringToIndex(macthes.first!.endIndex.predecessor())
-                            pre = pre.substringToIndex(pre.endIndex.predecessor())
                             
-                            let index: String.Index = macthes.first!.startIndex.advancedBy(2)
-                            pre = pre.substringFromIndex(index)
+                            var pre = macthes.first!.substring(to: macthes.first!.index(before:macthes.first!.endIndex))
+                            pre = pre.substring(to: pre.index(before: pre.endIndex))
+                            
+                            
+                            let index: String.Index = macthes.first!.index(macthes.first!.startIndex, offsetBy: 2)
+                            
+                            pre = pre.substring(to: pre.index(before: pre.endIndex))
+
+                            pre = pre.substring(from: index)
                             
                             courses[courses.count-1].preRequisite = pre // assign pre to the last added course
                         }
@@ -68,33 +73,36 @@ class UOBParser {
                         
                         if let text = link.text {
                             
+                            
                             // guard this code man, what the hell! hope it doesn't break :/
-                            let index = text.characters.indexOf({ $0 == " "})!
+                            let index = text.characters.index(where: { $0 == " "})!
                             
-                            code = text.substringToIndex(index)
+                            code = text.substring(to: index)
                             
-                            let indexEnd: String.Index = text.startIndex.advancedBy(text.characters.count-1)
+                            let indexEnd: String.Index = text.index(text.endIndex, offsetBy: -1)
                             
-                            name = text.substringToIndex(indexEnd)
-                            name = name.substringFromIndex(index.advancedBy(2)).capitalizedString
+                            name = text.substring(to: indexEnd)
+                            name = name.substring(from: name.index(index, offsetBy: 2)).capitalized
                             
                             url = "\(Constants.baseURL)/cgi/enr/\(courseLink)"
-
+                            
                             let inl = matchesForRegexInText("inl=.*?&", text: courseLink)
-                            departmentCode = inl.first!.substringToIndex(inl.first!.endIndex.predecessor())
-                            departmentCode = departmentCode.substringFromIndex(departmentCode.startIndex.advancedBy(4))
+                            departmentCode = inl.first!.substring(to: inl.first!.index(inl.first!.endIndex, offsetBy: -1))
+                            departmentCode = departmentCode.substring(from: departmentCode.index(departmentCode.startIndex, offsetBy: 4))
+
                             
                             let abvvr = matchesForRegexInText("abv=.*?&", text: courseLink)
-                            abv = abvvr.first!.substringToIndex(abvvr.first!.endIndex.predecessor())
-                            abv = abv.substringFromIndex(abv.startIndex.advancedBy(4))
+                            abv = abvvr.first!.substring(to: abvvr.first!.index(abvvr.first!.endIndex, offsetBy: -1))
+                            abv = abv.substring(from: abv.index(abv.startIndex, offsetBy: 4))
 
                             let crsno = matchesForRegexInText("crsno=.*?&", text: courseLink)
-                            courseNo = crsno.first!.substringToIndex(crsno.first!.endIndex.predecessor())
-                            courseNo = courseNo.substringFromIndex(courseNo.startIndex.advancedBy(6))
-
+                            courseNo = crsno.first!.substring(to: crsno.first!.index(crsno.first!.endIndex, offsetBy: -1))
+                            courseNo = courseNo.substring(from: courseNo.index(courseNo.startIndex, offsetBy: 6))
+                            
                             let crd = matchesForRegexInText("crd=.*?&", text: courseLink)
-                            credits = crd.first!.substringToIndex(crd.first!.endIndex.predecessor())
-                            credits = credits.substringFromIndex(credits.startIndex.advancedBy(4))
+                            credits = crd.first!.substring(to: crd.first!.index(crd.first!.endIndex, offsetBy: -1))
+                            credits = credits.substring(from: credits.index(credits.startIndex, offsetBy: 4))
+                            
                             
                             courses.append(Course.init(name: name, code: code, credits: credits, preRequisite: preRequisite, url: url, abv: abv, courseNo: courseNo, departmentCode: departmentCode))
                         }
@@ -110,7 +118,7 @@ class UOBParser {
     }
     
     
-    static func parseSections(html: String) -> [Section] {
+    static func parseSections(_ html: String) -> [Section] {
         
         var sections = [Section]()
         
@@ -120,7 +128,7 @@ class UOBParser {
         let note: String = ""
         var finalExam: FinalExam
         
-        if let doc = Kanna.HTML(html: html, encoding: NSUTF8StringEncoding) {
+        if let doc = Kanna.HTML(html: html, encoding: String.Encoding.utf8) {
             
             let tree = doc.xpath("//td | //font")
             
@@ -140,7 +148,7 @@ class UOBParser {
                 if secSearch.count > 0 {
                     
                     sectionNo = tree[i + 1].text!
-                    doctor = tree[i + 3].text!.substringToIndex(tree[i + 3].text!.endIndex.predecessor()).capitalizedString
+                    doctor = tree[i + 3].text!.substring(to: tree[i + 3].text!.index(tree[i + 3].text!.endIndex, offsetBy: -1)).capitalized
                     
                     i += 10
                     while tree[i].text! != "Exam" {
@@ -159,13 +167,13 @@ class UOBParser {
                     var date: NSDate?
                     
                     if tree[i + 2].text!.characters.count == 10 {
-                        date = NSDate(dateString: tree[i + 2].text!)
+                        date = Date(dateString: tree[i + 2].text!) as NSDate?
                     }
                             
                     let startTime = tree[i + 4].text!
                     let endTime = tree[i + 6].text!
                     
-                    finalExam = FinalExam.init(date: date, startTime: startTime, endTime: endTime)
+                    finalExam = FinalExam.init(date: date as Date?, startTime: startTime, endTime: endTime)
                     
                     sections.append(Section.init(sectionNo: sectionNo, doctor: doctor, seats: "0", timing: timing, note: note, finalExam: finalExam))
                     timing = []
@@ -180,9 +188,9 @@ class UOBParser {
         return sections
     }
     
-    static func parseSeats(html: String, inout sections: [Section]) {
+    static func parseSeats(_ html: String, sections: inout [Section]) {
         
-        if let doc = Kanna.HTML(html: html, encoding: NSUTF8StringEncoding) {
+        if let doc = Kanna.HTML(html: html, encoding: String.Encoding.utf8) {
             
             let tree = doc.xpath("//font")
             
@@ -208,14 +216,14 @@ class UOBParser {
         }
     }
     
-    static func matchesForRegexInText(regex: String!, text: String!) -> [String] {
+    static func matchesForRegexInText(_ regex: String!, text: String!) -> [String] {
         
         do {
             let regex = try NSRegularExpression(pattern: regex, options: [])
             let nsString = text as NSString
-            let results = regex.matchesInString(text,
+            let results = regex.matches(in: text,
                                                 options: [], range: NSMakeRange(0, nsString.length))
-            return results.map { nsString.substringWithRange($0.range)}
+            return results.map { nsString.substring(with: $0.range)}
         } catch let error as NSError {
             print("invalid regex: \(error.localizedDescription)")
             return []
@@ -223,20 +231,20 @@ class UOBParser {
     }
 }
 
-extension NSDate
+extension Date
 {
-    convenience init(dateString:String) {
-        let dateStringFormatter = NSDateFormatter()
+    init(dateString:String) {
+        let dateStringFormatter = DateFormatter()
         dateStringFormatter.dateFormat = "d-M-yyyy"
-        dateStringFormatter.timeZone = NSTimeZone(name: "UTC")
+        dateStringFormatter.timeZone = TimeZone(identifier: "UTC")
         
-        let d = dateStringFormatter.dateFromString(dateString)!
-        self.init(timeInterval:0, sinceDate:d)
+        let d = dateStringFormatter.date(from: dateString)!
+        self.init(timeInterval:0, since:d)
     }
     
     var formattedLong: String {
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy"
-        return formatter.stringFromDate(self)
+        return formatter.string(from: self)
     }
 }

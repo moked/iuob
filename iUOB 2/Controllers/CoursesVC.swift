@@ -32,9 +32,9 @@ class CoursesVC: UITableViewController {
     func googleAnalytics() {
         
         if let tracker = GAI.sharedInstance().defaultTracker {
-            tracker.set(kGAIScreenName, value: NSStringFromClass(self.dynamicType).componentsSeparatedByString(".").last!)
-            let builder = GAIDictionaryBuilder.createScreenView()
-            tracker.send(builder.build() as [NSObject : AnyObject])
+            tracker.set(kGAIScreenName, value: NSStringFromClass(type(of: self)).components(separatedBy: ".").last!)
+            let builder: NSObject = GAIDictionaryBuilder.createScreenView().build()
+            tracker.send(builder as! [NSObject : AnyObject])
         }
     }
     
@@ -42,12 +42,12 @@ class CoursesVC: UITableViewController {
     
     func getCourses() {
         
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        Alamofire.request(.GET, department.url, parameters: nil)
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        Alamofire.request(department.url, parameters: nil)
             .validate()
             .responseString { response in
                 
-                MBProgressHUD.hideHUDForView(self.view, animated: true)
+                MBProgressHUD.hide(for: self.view, animated: true)
                 
                 if response.result.error == nil {
 
@@ -62,28 +62,28 @@ class CoursesVC: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return courses.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("CourseCell", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell", for: indexPath)
         
-        cell.textLabel?.text = "\(courses[indexPath.row].code) - \(courses[indexPath.row].name)"
-        cell.detailTextLabel?.text = courses[indexPath.row].preRequisite
+        cell.textLabel?.text = "\(courses[(indexPath as NSIndexPath).row].code) - \(courses[(indexPath as NSIndexPath).row].name)"
+        cell.detailTextLabel?.text = courses[(indexPath as NSIndexPath).row].preRequisite
 
         return cell
     }
 
     // Mark: Navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowTiming" {
             
-            let indexPath = self.tableView.indexPathForCell(sender as! UITableViewCell)! as NSIndexPath
+            let indexPath = self.tableView.indexPath(for: sender as! UITableViewCell)! as IndexPath
                         
-            let destinationViewController = segue.destinationViewController as! TimingVC
+            let destinationViewController = segue.destination as! TimingVC
             
-            destinationViewController.course = courses[indexPath.row]
+            destinationViewController.course = courses[(indexPath as NSIndexPath).row]
         }
     }
 }

@@ -28,11 +28,11 @@ class DepartmentsVC: UITableViewController {
     required init?(coder aDecoder: NSCoder) {
         
         SideMenuController.preferences.drawing.menuButtonImage = UIImage(named: "menu")
-        SideMenuController.preferences.drawing.sidePanelPosition = .UnderCenterPanelLeft
+        SideMenuController.preferences.drawing.sidePanelPosition = .underCenterPanelLeft
         
         SideMenuController.preferences.drawing.sidePanelWidth = 300
         SideMenuController.preferences.drawing.centerPanelShadow = true
-        SideMenuController.preferences.animating.statusBarBehaviour = .HorizontalPan
+        SideMenuController.preferences.animating.statusBarBehaviour = .horizontalPan
         SideMenuController.preferences.animating.transitionAnimator = FadeAnimator.self
         
         super.init(coder: aDecoder)
@@ -46,8 +46,8 @@ class DepartmentsVC: UITableViewController {
         
         let items = ["2016/1"]  // will add an algorithm to determine the semester later
         
-        menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: items[0], items: items)
-        menuView.arrowTintColor = UIColor.blackColor()
+        menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: items[0], items: items as [AnyObject])
+        menuView.arrowTintColor = UIColor.black
 
         menuView.didSelectItemAtIndexHandler = {(indexPath: Int) -> () in
             //self.selectedCellLabel.text = items[indexPath]
@@ -60,10 +60,10 @@ class DepartmentsVC: UITableViewController {
     
     func registerForPush() {
         
-        let application = UIApplication.sharedApplication()
+        let application = UIApplication.shared
 
         let settings: UIUserNotificationSettings =
-            UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+            UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
         application.registerUserNotificationSettings(settings)
         application.registerForRemoteNotifications()
     }
@@ -71,9 +71,9 @@ class DepartmentsVC: UITableViewController {
     func googleAnalytics() {
         
         if let tracker = GAI.sharedInstance().defaultTracker {
-            tracker.set(kGAIScreenName, value: NSStringFromClass(self.dynamicType).componentsSeparatedByString(".").last!)
-            let builder = GAIDictionaryBuilder.createScreenView()
-            tracker.send(builder.build() as [NSObject : AnyObject])
+            tracker.set(kGAIScreenName, value: NSStringFromClass(type(of: self)).components(separatedBy: ".").last!)
+            let builder: NSObject = GAIDictionaryBuilder.createScreenView().build()
+            tracker.send(builder as! [NSObject : AnyObject])
         }
     }
     
@@ -83,12 +83,12 @@ class DepartmentsVC: UITableViewController {
 
         let url = "\(Constants.baseURL)/cgi/enr/schedule2.abrv"
         
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        Alamofire.request(.GET, url, parameters: ["prog": "1", "cyer": "2016", "csms": "1"])    // this shouldn't be hard coded
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        Alamofire.request(url, method: .get, parameters: ["prog": "1", "cyer": "2016", "csms": "1"])    // this shouldn't be hard coded
             .validate()
             .responseString { response in
                 
-                MBProgressHUD.hideHUDForView(self.view, animated: true)
+                MBProgressHUD.hide(for: self.view, animated: true)
                 
                 if response.result.error == nil {
                     
@@ -110,9 +110,9 @@ class DepartmentsVC: UITableViewController {
             return department.name[department.name.startIndex]
         }
         
-        letters = letters.sort()
+        letters = letters.sorted()
         
-        letters = letters.reduce([], combine: { (list, name) -> [Character] in
+        letters = letters.reduce([], { (list, name) -> [Character] in
             if !list.contains(name) {
                 return list + [name]
             }
@@ -135,19 +135,19 @@ class DepartmentsVC: UITableViewController {
     
     // MARK: - Table view data source
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return letters.count
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return deptDictianry[letters[section]]!.count
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "\(letters[section])"
     }
     
-    override func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         
         var indexes = [String]()
         for l in letters {
@@ -156,11 +156,11 @@ class DepartmentsVC: UITableViewController {
         return indexes
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
            
-        let cell = tableView.dequeueReusableCellWithIdentifier("DepartmentCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DepartmentCell", for: indexPath)
         
-        let dep = deptDictianry[letters[indexPath.section]]![indexPath.row]
+        let dep = deptDictianry[letters[(indexPath as NSIndexPath).section]]![(indexPath as NSIndexPath).row]
         
         cell.textLabel?.text = dep.name
         
@@ -168,14 +168,14 @@ class DepartmentsVC: UITableViewController {
     }
 
     // Mark: Navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowCourses" {
             
-            let indexPath = self.tableView.indexPathForCell(sender as! UITableViewCell)! as NSIndexPath
+            let indexPath = self.tableView.indexPath(for: sender as! UITableViewCell)! as IndexPath
             
-            let dep = deptDictianry[letters[indexPath.section]]![indexPath.row]
+            let dep = deptDictianry[letters[(indexPath as NSIndexPath).section]]![(indexPath as NSIndexPath).row]
             
-            let destinationViewController = segue.destinationViewController as! CoursesVC
+            let destinationViewController = segue.destination as! CoursesVC
             
             destinationViewController.department = dep
         }

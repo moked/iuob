@@ -29,41 +29,43 @@ class MapVC: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate, UI
         
         let items = ["Sakheer", "Isa Town"]
         
-        menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: items[0], items: items)
-        menuView.arrowTintColor = UIColor.blackColor()
+        menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: items[0], items: items as [AnyObject])
+        menuView.arrowTintColor = UIColor.black
         
         menuView.didSelectItemAtIndexHandler = {(indexPath: Int) -> () in
             
             if indexPath == 1 {
                 
                 if self.mapView != nil {
-                    self.mapView.camera = GMSCameraPosition.cameraWithLatitude(Constants.isaTownLocation.latitude, longitude: Constants.isaTownLocation.longitude, zoom: 16)
+                    self.mapView.camera = GMSCameraPosition.camera(withLatitude: Constants.isaTownLocation.latitude, longitude: Constants.isaTownLocation.longitude, zoom: 16)
                 }
             } else {
                 if self.mapView != nil {
-                    self.mapView.camera = GMSCameraPosition.cameraWithLatitude(Constants.sakheerLocation.latitude, longitude: Constants.sakheerLocation.longitude, zoom: 16)
+                    self.mapView.camera = GMSCameraPosition.camera(withLatitude: Constants.sakheerLocation.latitude, longitude: Constants.sakheerLocation.longitude, zoom: 16)
                 }
             }
         }
         
         self.navigationItem.titleView = menuView
-
+        
         /* load all points from plist file */
-        let path = NSBundle.mainBundle().pathForResource("UOBLocations", ofType:"plist")
+        let path = Bundle.main.path(forResource: "UOBLocations", ofType:"plist")
         let dict = NSDictionary(contentsOfFile:path!)
         
         let locs = dict!["Locations"] as! NSArray
         
         for loc in locs {
             
-            let title = loc["Title"]! as! String
+            let dataDic = loc as! NSDictionary
+            
+            let title = dataDic["Title"]! as! String
             var description = ""
-            if let desc = loc["Description"]! as? String {
+            if let desc = dataDic["Description"]! as? String {
                 description = desc
             }
-            let location = loc["Location"]! as! String
-            let latitude = Double(loc["Latitude"]! as! String)
-            let longitude = Double(loc["Longitude"]! as! String)
+            let location = dataDic["Location"]! as! String
+            let latitude = Double(dataDic["Latitude"]! as! String)
+            let longitude = Double(dataDic["Longitude"]! as! String)
             
             uobMarkers.append(IUOBMarkers(position: CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!), title: title, description: description, location: location))
 
@@ -75,17 +77,17 @@ class MapVC: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate, UI
     func googleAnalytics() {
         
         if let tracker = GAI.sharedInstance().defaultTracker {
-            tracker.set(kGAIScreenName, value: NSStringFromClass(self.dynamicType).componentsSeparatedByString(".").last!)
-            let builder = GAIDictionaryBuilder.createScreenView()
-            tracker.send(builder.build() as [NSObject : AnyObject])
+            tracker.set(kGAIScreenName, value: NSStringFromClass(type(of: self)).components(separatedBy: ".").last!)
+            let builder: NSObject = GAIDictionaryBuilder.createScreenView().build()
+            tracker.send(builder as! [NSObject : AnyObject])
         }
     }
 
     override func loadView() {
         
-        let camera = GMSCameraPosition.cameraWithLatitude(Constants.sakheerLocation.latitude, longitude: Constants.sakheerLocation.longitude, zoom: 16)
-        mapView = GMSMapView.mapWithFrame(CGRect.zero, camera: camera)
-        mapView.myLocationEnabled = true
+        let camera = GMSCameraPosition.camera(withLatitude: Constants.sakheerLocation.latitude, longitude: Constants.sakheerLocation.longitude, zoom: 16)
+        mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
         mapView.mapType = kGMSTypeHybrid
         self.mapView.delegate = self
@@ -110,7 +112,7 @@ class MapVC: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate, UI
         }
     }
 
-    func didTapMyLocationButtonForMapView(mapView: GMSMapView) -> Bool {
+    func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {
         
         firstLocationUpdate = true
         
@@ -126,25 +128,33 @@ class MapVC: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate, UI
         return true
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
-
-        if firstLocationUpdate {
-            self.mapView.camera = GMSCameraPosition.cameraWithTarget(newLocation.coordinate, zoom: 14)
-
-            firstLocationUpdate = false
-        }
-    }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            if firstLocationUpdate {
+                self.mapView.camera = GMSCameraPosition.camera(withTarget: locations.last!.coordinate, zoom: 14)
     
-    @IBAction func actionButton(sender: AnyObject) {
+                firstLocationUpdate = false
+            }
+    }
+
+//func locationManager(_ manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
+//
+//        if firstLocationUpdate {
+//            self.mapView.camera = GMSCameraPosition.camera(withTarget: newLocation.coordinate, zoom: 14)
+//
+//            firstLocationUpdate = false
+//        }
+//    }
+    
+    @IBAction func actionButton(_ sender: AnyObject) {
         
-        let actionSheet: UIAlertController = UIAlertController(title: "select map type", message: "", preferredStyle: .ActionSheet)
+        let actionSheet: UIAlertController = UIAlertController(title: "select map type", message: "", preferredStyle: .actionSheet)
         
-        let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
+        let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
             print("Cancel")
         }
         actionSheet.addAction(cancelActionButton)
         
-        let normal: UIAlertAction = UIAlertAction(title: "Normal", style: .Default) { action -> Void in
+        let normal: UIAlertAction = UIAlertAction(title: "Normal", style: .default) { action -> Void in
             
             if self.mapView != nil {
                 
@@ -153,7 +163,7 @@ class MapVC: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate, UI
         }
         actionSheet.addAction(normal)
         
-        let hybrid: UIAlertAction = UIAlertAction(title: "Hybrid", style: .Default) { action -> Void in
+        let hybrid: UIAlertAction = UIAlertAction(title: "Hybrid", style: .default) { action -> Void in
             
             if self.mapView != nil {
                 
@@ -162,7 +172,7 @@ class MapVC: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate, UI
         }
         actionSheet.addAction(hybrid)
         
-        let satellite: UIAlertAction = UIAlertAction(title: "Satellite", style: .Default) { action -> Void in
+        let satellite: UIAlertAction = UIAlertAction(title: "Satellite", style: .default) { action -> Void in
             
             if self.mapView != nil {
                 
@@ -171,7 +181,7 @@ class MapVC: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate, UI
         }
         actionSheet.addAction(satellite)
         
-        let terrain: UIAlertAction = UIAlertAction(title: "Terrain", style: .Default) { action -> Void in
+        let terrain: UIAlertAction = UIAlertAction(title: "Terrain", style: .default) { action -> Void in
             
             if self.mapView != nil {
                 
@@ -180,6 +190,6 @@ class MapVC: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate, UI
         }
         actionSheet.addAction(terrain)
     
-        self.presentViewController(actionSheet, animated: true, completion: nil)
+        self.present(actionSheet, animated: true, completion: nil)
     }
 }

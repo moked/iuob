@@ -44,13 +44,13 @@ struct Timing {
 
 struct FinalExam {
     
-    init(date: NSDate?, startTime: String, endTime: String) {
+    init(date: Date?, startTime: String, endTime: String) {
         self.date = date
         self.startTime = startTime
         self.endTime = endTime
     }
     
-    var date: NSDate?   // optional couse some courses has no final exam
+    var date: Date?   // optional couse some courses has no final exam
     var startTime = ""
     var endTime = ""
 }

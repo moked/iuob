@@ -29,11 +29,13 @@ class TiimingCell: UITableViewCell {
         timeLabel.layer.masksToBounds = true
         roomLabel.layer.masksToBounds = true
         
-        self.sectionNoLabel.layer.cornerRadius = sectionNoLabel.frame.width / 2;
+        //self.sectionNoLabel.layer.cornerRadius = sectionNoLabel.frame.width / 2;
+        self.sectionNoLabel.layer.cornerRadius = 8;
+
         self.dayLabel.layer.cornerRadius = 8
         self.timeLabel.layer.cornerRadius = 8
         self.roomLabel.layer.cornerRadius = 8
-        
+
         dayHeaderLabel.layer.masksToBounds = true
         timeHeaderLabel.layer.masksToBounds = true
         roomHeaderLabel.layer.masksToBounds = true
@@ -43,7 +45,7 @@ class TiimingCell: UITableViewCell {
         self.roomHeaderLabel.layer.cornerRadius = 8
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

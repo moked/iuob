@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Today View Controller-->
+        <scene sceneID="cwh-vc-ff4">
+            <objects>
+                <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="My_Schedule" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ft6-oW-KC0"/>
+                        <viewControllerLayoutGuide type="bottom" id="FKl-LY-JtV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="176"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="📚ITCS346 🕗10:00-10:50 🏫S40-2987" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SBu-Qe-nmN">
+                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="📚ITCS346 🕗10:00-10:50 🏫S40-2987" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Pu-X7-cYO">
+                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="📚ITCS346 🕗10:00-10:50 🏫S40-2987" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="veJ-uJ-62o">
+                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="📚ITCS346 🕗10:00-10:50 🏫S40-2987" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ret-FE-D3L">
+                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="📚ITCS346 🕗10:00-10:50 🏫S40-2987" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q3Z-sq-Gng">
+                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="📚ITCS346 🕗10:00-10:50 🏫S40-2987" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a8Q-Fw-F11">
+                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="📚ITCS346 🕗10:00-10:50 🏫S40-2987" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GfX-vL-ChQ">
+                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sun" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kaY-uP-CMD">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="54" id="bfv-J8-yMA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="a8Q-Fw-F11" firstAttribute="trailing" secondItem="GfX-vL-ChQ" secondAttribute="trailing" id="6lz-Cw-WDS"/>
+                            <constraint firstItem="SBu-Qe-nmN" firstAttribute="trailing" secondItem="2Pu-X7-cYO" secondAttribute="trailing" id="9hi-uV-iW5"/>
+                            <constraint firstItem="kaY-uP-CMD" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" constant="-8" id="Daj-vr-ARy"/>
+                            <constraint firstItem="kaY-uP-CMD" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="8" symbolic="YES" id="FNa-pH-s2P"/>
+                            <constraint firstItem="SBu-Qe-nmN" firstAttribute="trailing" secondItem="S3S-Oj-5AN" secondAttribute="trailingMargin" id="I4v-XL-hEl"/>
+                            <constraint firstItem="SBu-Qe-nmN" firstAttribute="leading" secondItem="kaY-uP-CMD" secondAttribute="trailing" constant="8" symbolic="YES" id="KYt-py-H5I"/>
+                            <constraint firstItem="Q3Z-sq-Gng" firstAttribute="trailing" secondItem="a8Q-Fw-F11" secondAttribute="trailing" id="LFZ-bO-wIc"/>
+                            <constraint firstItem="veJ-uJ-62o" firstAttribute="trailing" secondItem="Ret-FE-D3L" secondAttribute="trailing" id="S8L-2h-M7r"/>
+                            <constraint firstItem="SBu-Qe-nmN" firstAttribute="leading" secondItem="2Pu-X7-cYO" secondAttribute="leading" id="Tf3-eg-yqa"/>
+                            <constraint firstItem="Ret-FE-D3L" firstAttribute="leading" secondItem="Q3Z-sq-Gng" secondAttribute="leading" id="UKl-Px-KtB"/>
+                            <constraint firstItem="kaY-uP-CMD" firstAttribute="top" secondItem="SBu-Qe-nmN" secondAttribute="top" id="Uv7-Qx-Veq"/>
+                            <constraint firstItem="Ret-FE-D3L" firstAttribute="trailing" secondItem="Q3Z-sq-Gng" secondAttribute="trailing" id="WhI-FA-Cb4"/>
+                            <constraint firstItem="2Pu-X7-cYO" firstAttribute="top" secondItem="SBu-Qe-nmN" secondAttribute="bottom" constant="8" symbolic="YES" id="Yf3-Kv-s3r"/>
+                            <constraint firstItem="a8Q-Fw-F11" firstAttribute="leading" secondItem="GfX-vL-ChQ" secondAttribute="leading" id="cIS-lC-DqT"/>
+                            <constraint firstItem="GfX-vL-ChQ" firstAttribute="top" secondItem="a8Q-Fw-F11" secondAttribute="bottom" constant="8" symbolic="YES" id="cQO-LO-5RD"/>
+                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="kaY-uP-CMD" secondAttribute="bottom" constant="8" symbolic="YES" id="dST-E9-Nhv"/>
+                            <constraint firstItem="2Pu-X7-cYO" firstAttribute="leading" secondItem="veJ-uJ-62o" secondAttribute="leading" id="dlL-8x-GsC"/>
+                            <constraint firstItem="Q3Z-sq-Gng" firstAttribute="leading" secondItem="a8Q-Fw-F11" secondAttribute="leading" id="dnP-jP-5dz"/>
+                            <constraint firstItem="Ret-FE-D3L" firstAttribute="top" secondItem="veJ-uJ-62o" secondAttribute="bottom" constant="8" symbolic="YES" id="eRY-18-BlR"/>
+                            <constraint firstItem="2Pu-X7-cYO" firstAttribute="trailing" secondItem="veJ-uJ-62o" secondAttribute="trailing" id="jlP-4c-etM"/>
+                            <constraint firstItem="Q3Z-sq-Gng" firstAttribute="top" secondItem="Ret-FE-D3L" secondAttribute="bottom" constant="8" symbolic="YES" id="lqd-ik-Ih8"/>
+                            <constraint firstItem="veJ-uJ-62o" firstAttribute="leading" secondItem="Ret-FE-D3L" secondAttribute="leading" id="mOC-gW-svI"/>
+                            <constraint firstItem="a8Q-Fw-F11" firstAttribute="top" secondItem="Q3Z-sq-Gng" secondAttribute="bottom" constant="8" symbolic="YES" id="ssq-2G-66Z"/>
+                            <constraint firstItem="veJ-uJ-62o" firstAttribute="top" secondItem="2Pu-X7-cYO" secondAttribute="bottom" constant="8" symbolic="YES" id="tLb-WI-Dgf"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="176"/>
+                    <connections>
+                        <outlet property="class1Label" destination="SBu-Qe-nmN" id="T1r-9w-jXl"/>
+                        <outlet property="class2Label" destination="2Pu-X7-cYO" id="9k6-nK-WSk"/>
+                        <outlet property="class3Label" destination="veJ-uJ-62o" id="ntX-iq-5my"/>
+                        <outlet property="class4Label" destination="Ret-FE-D3L" id="JU8-Ja-0gh"/>
+                        <outlet property="class5Label" destination="Q3Z-sq-Gng" id="hBK-AF-v5S"/>
+                        <outlet property="class6Label" destination="a8Q-Fw-F11" id="xc5-9S-iko"/>
+                        <outlet property="class7Label" destination="GfX-vL-ChQ" id="Yaa-fF-7YZ"/>
+                        <outlet property="dayOfWeekLabel" destination="kaY-uP-CMD" id="KXg-07-Omi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116.8" y="122.33883058470765"/>
+        </scene>
+    </scenes>
+</document>

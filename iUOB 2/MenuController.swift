@@ -10,35 +10,35 @@ import UIKit
 
 class MenuController: UITableViewController {
     
-    let segues = ["showCenterController", "showScheduleBuilderController", "showMapController", "showUsefulLinksController", "showAboutController"];
-    let names = ["Semester Schedule", "Schedule Builder", "UOB Map", "Useful Links", "About"]
-    private var previousIndex: NSIndexPath?
+    let segues = ["showCenterController", "showStudentScheduleController", "showScheduleBuilderController", "showMapController", "showUsefulLinksController", "showAboutController"];
+    let names = ["Semester Schedule", "My Schedule", "Schedule Builder", "UOB Map", "Useful Links", "About"]
+    fileprivate var previousIndex: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return segues.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("menuCell")!
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell")!
         cell.textLabel?.font = UIFont(name: "HelveticaNeue-Regular", size: 17)
-        cell.textLabel?.text = names[indexPath.row]
+        cell.textLabel?.text = names[(indexPath as NSIndexPath).row]
         
-        cell.imageView?.image = UIImage(named: names[indexPath.row])
+        cell.imageView?.image = UIImage(named: names[(indexPath as NSIndexPath).row])
         
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if let index = previousIndex {
-            tableView.deselectRowAtIndexPath(index, animated: true)
+            tableView.deselectRow(at: index, animated: true)
         }
         
-        sideMenuController?.performSegueWithIdentifier(segues[indexPath.row], sender: nil)
+        sideMenuController?.performSegue(withIdentifier: segues[(indexPath as NSIndexPath).row], sender: nil)
         previousIndex = indexPath
     }
 }

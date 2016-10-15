@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		30933721DFAB0B6ACA5E64EB /* Pods_iUOB_2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E1F2E0265E4CA5372DBF329 /* Pods_iUOB_2.framework */; };
+		77C8403DAA981834017C76EC /* Pods_My_Schedule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD8E2D283D636E8CE0D83F4 /* Pods_My_Schedule.framework */; };
+		7B96A72488479A4B27396EB2 /* Pods_iUOB_2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C257CCA8BEF3DC66552150C /* Pods_iUOB_2.framework */; };
 		D70162C51D88AF7D0005CBB3 /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70162C41D88AF7D0005CBB3 /* AboutVC.swift */; };
 		D708F1411D5BE37F00C6E7B3 /* TimingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D708F1401D5BE37F00C6E7B3 /* TimingVC.swift */; };
 		D70D15AE1D899D7B00425B17 /* UOBLocations.plist in Resources */ = {isa = PBXBuildFile; fileRef = D70D15AD1D899D7B00425B17 /* UOBLocations.plist */; };
@@ -22,6 +23,18 @@
 		D74920461D6008CF00B2B14D /* UOBAutoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74920451D6008CF00B2B14D /* UOBAutoVC.swift */; };
 		D74B1A1E1D5DD32A00D097EF /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74B1A1D1D5DD32A00D097EF /* Section.swift */; };
 		D74B1A261D5E7C9B00D097EF /* TiimingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74B1A251D5E7C9B00D097EF /* TiimingCell.swift */; };
+		D75885781DB19160003F2C47 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D75885771DB19160003F2C47 /* NotificationCenter.framework */; };
+		D758857B1DB19160003F2C47 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D758857A1DB19160003F2C47 /* TodayViewController.swift */; };
+		D758857E1DB19160003F2C47 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D758857C1DB19160003F2C47 /* MainInterface.storyboard */; };
+		D75885821DB19160003F2C47 /* My Schedule.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D75885761DB19160003F2C47 /* My Schedule.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D75885891DB1AD40003F2C47 /* IUOBConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4CC941D875CF6006EA495 /* IUOBConstants.swift */; };
+		D758858A1DB1B0AB003F2C47 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74B1A1D1D5DD32A00D097EF /* Section.swift */; };
+		D758858D1DB1B44B003F2C47 /* UOBParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71DB1B51D5A8D4200311999 /* UOBParser.swift */; };
+		D758858E1DB1B550003F2C47 /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71DB1AE1D5A716500311999 /* Department.swift */; };
+		D758858F1DB1B554003F2C47 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71DB1B31D5A8A8700311999 /* Course.swift */; };
+		D764C0CD1D99B4E6008B8C38 /* MyScheduleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D764C0CC1D99B4E6008B8C38 /* MyScheduleVC.swift */; };
+		D764C0CF1D99B504008B8C38 /* AddCoursesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D764C0CE1D99B504008B8C38 /* AddCoursesVC.swift */; };
+		D76D1D381DAAE5CE0072FCC8 /* CourseCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D1D371DAAE5CE0072FCC8 /* CourseCVCell.swift */; };
 		D76D54711D591CEA002FFA65 /* CustomSideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D54701D591CEA002FFA65 /* CustomSideMenuController.swift */; };
 		D76D54741D592125002FFA65 /* DepartmentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D54731D592125002FFA65 /* DepartmentsVC.swift */; };
 		D76D54771D592288002FFA65 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D54761D592288002FFA65 /* MenuController.swift */; };
@@ -29,13 +42,41 @@
 		D7A4CC951D875CF6006EA495 /* IUOBConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4CC941D875CF6006EA495 /* IUOBConstants.swift */; };
 		D7A4CC971D8769E8006EA495 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4CC961D8769E8006EA495 /* MapVC.swift */; };
 		D7A4CC9B1D876A32006EA495 /* UsefulLinksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4CC9A1D876A32006EA495 /* UsefulLinksVC.swift */; };
+		D7A9C0421DAC06940089021E /* CoursesCVHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A9C0411DAC06940089021E /* CoursesCVHeader.swift */; };
 		D7D5FD601D5FC84B00DF9A7B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7D5FD5F1D5FC84B00DF9A7B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D75885801DB19160003F2C47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D720966C1D57E3C100563AFC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D75885751DB19160003F2C47;
+			remoteInfo = "My Schedule";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D75885861DB19160003F2C47 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D75885821DB19160003F2C47 /* My Schedule.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		5E1F2E0265E4CA5372DBF329 /* Pods_iUOB_2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iUOB_2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		66538A92E70501C7BDB4D483 /* Pods-iUOB 2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iUOB 2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iUOB 2/Pods-iUOB 2.debug.xcconfig"; sourceTree = "<group>"; };
-		A8C784629B9DF07DE8183A37 /* Pods-iUOB 2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iUOB 2.release.xcconfig"; path = "Pods/Target Support Files/Pods-iUOB 2/Pods-iUOB 2.release.xcconfig"; sourceTree = "<group>"; };
+		030C908AF6533A51DAD56D19 /* Pods-My Schedule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Schedule.release.xcconfig"; path = "Pods/Target Support Files/Pods-My Schedule/Pods-My Schedule.release.xcconfig"; sourceTree = "<group>"; };
+		4C257CCA8BEF3DC66552150C /* Pods_iUOB_2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iUOB_2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C212996D3F5EA0EA322700A /* Pods-iUOB 2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iUOB 2.release.xcconfig"; path = "Pods/Target Support Files/Pods-iUOB 2/Pods-iUOB 2.release.xcconfig"; sourceTree = "<group>"; };
+		9CD8E2D283D636E8CE0D83F4 /* Pods_My_Schedule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Schedule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E1BFE963C52B468A2EE88A5 /* Pods-iUOB 2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iUOB 2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iUOB 2/Pods-iUOB 2.debug.xcconfig"; sourceTree = "<group>"; };
+		B12E5FA83F9958CE9BF0027C /* Pods-My Schedule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Schedule.debug.xcconfig"; path = "Pods/Target Support Files/Pods-My Schedule/Pods-My Schedule.debug.xcconfig"; sourceTree = "<group>"; };
 		D70162C41D88AF7D0005CBB3 /* AboutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutVC.swift; path = Controllers/AboutVC.swift; sourceTree = "<group>"; };
 		D708F1401D5BE37F00C6E7B3 /* TimingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimingVC.swift; path = Controllers/TimingVC.swift; sourceTree = "<group>"; };
 		D70D15AD1D899D7B00425B17 /* UOBLocations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UOBLocations.plist; sourceTree = "<group>"; };
@@ -52,6 +93,16 @@
 		D74920451D6008CF00B2B14D /* UOBAutoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UOBAutoVC.swift; path = Controllers/UOBAutoVC.swift; sourceTree = "<group>"; };
 		D74B1A1D1D5DD32A00D097EF /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Section.swift; path = Models/Section.swift; sourceTree = "<group>"; };
 		D74B1A251D5E7C9B00D097EF /* TiimingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TiimingCell.swift; path = Views/TiimingCell.swift; sourceTree = "<group>"; };
+		D75885761DB19160003F2C47 /* My Schedule.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "My Schedule.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D75885771DB19160003F2C47 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		D758857A1DB19160003F2C47 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		D758857D1DB19160003F2C47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		D758857F1DB19160003F2C47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D75885871DB1A846003F2C47 /* iUOB 2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "iUOB 2.entitlements"; sourceTree = "<group>"; };
+		D75885881DB1A890003F2C47 /* My Schedule.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "My Schedule.entitlements"; sourceTree = "<group>"; };
+		D764C0CC1D99B4E6008B8C38 /* MyScheduleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyScheduleVC.swift; path = Controllers/MyScheduleVC.swift; sourceTree = "<group>"; };
+		D764C0CE1D99B504008B8C38 /* AddCoursesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddCoursesVC.swift; path = Controllers/AddCoursesVC.swift; sourceTree = "<group>"; };
+		D76D1D371DAAE5CE0072FCC8 /* CourseCVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CourseCVCell.swift; path = Views/CourseCVCell.swift; sourceTree = "<group>"; };
 		D76D54691D5907D1002FFA65 /* iUOB 2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iUOB 2-Bridging-Header.h"; sourceTree = "<group>"; };
 		D76D54701D591CEA002FFA65 /* CustomSideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomSideMenuController.swift; path = Navigation/CustomSideMenuController.swift; sourceTree = "<group>"; };
 		D76D54731D592125002FFA65 /* DepartmentsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DepartmentsVC.swift; path = Controllers/DepartmentsVC.swift; sourceTree = "<group>"; };
@@ -60,6 +111,7 @@
 		D7A4CC941D875CF6006EA495 /* IUOBConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IUOBConstants.swift; path = Models/IUOBConstants.swift; sourceTree = "<group>"; };
 		D7A4CC961D8769E8006EA495 /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapVC.swift; path = Controllers/MapVC.swift; sourceTree = "<group>"; };
 		D7A4CC9A1D876A32006EA495 /* UsefulLinksVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UsefulLinksVC.swift; path = Controllers/UsefulLinksVC.swift; sourceTree = "<group>"; };
+		D7A9C0411DAC06940089021E /* CoursesCVHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoursesCVHeader.swift; path = Views/CoursesCVHeader.swift; sourceTree = "<group>"; };
 		D7D5FD5F1D5FC84B00DF9A7B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,26 +120,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30933721DFAB0B6ACA5E64EB /* Pods_iUOB_2.framework in Frameworks */,
+				7B96A72488479A4B27396EB2 /* Pods_iUOB_2.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D75885731DB19160003F2C47 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D75885781DB19160003F2C47 /* NotificationCenter.framework in Frameworks */,
+				77C8403DAA981834017C76EC /* Pods_My_Schedule.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		63233D755A1F1F29B5177BA9 /* Pods */ = {
+		8CD998152E87B44C9108B5CD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				66538A92E70501C7BDB4D483 /* Pods-iUOB 2.debug.xcconfig */,
-				A8C784629B9DF07DE8183A37 /* Pods-iUOB 2.release.xcconfig */,
+				9E1BFE963C52B468A2EE88A5 /* Pods-iUOB 2.debug.xcconfig */,
+				6C212996D3F5EA0EA322700A /* Pods-iUOB 2.release.xcconfig */,
+				B12E5FA83F9958CE9BF0027C /* Pods-My Schedule.debug.xcconfig */,
+				030C908AF6533A51DAD56D19 /* Pods-My Schedule.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		A156FE4A3ADFA49A9B7D0FD2 /* Frameworks */ = {
+		D688A9A198A3A01CCE020E5A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5E1F2E0265E4CA5372DBF329 /* Pods_iUOB_2.framework */,
+				4C257CCA8BEF3DC66552150C /* Pods_iUOB_2.framework */,
+				D75885771DB19160003F2C47 /* NotificationCenter.framework */,
+				9CD8E2D283D636E8CE0D83F4 /* Pods_My_Schedule.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -108,9 +173,10 @@
 			isa = PBXGroup;
 			children = (
 				D72096761D57E3C100563AFC /* iUOB 2 */,
+				D75885791DB19160003F2C47 /* My Schedule */,
 				D72096751D57E3C100563AFC /* Products */,
-				63233D755A1F1F29B5177BA9 /* Pods */,
-				A156FE4A3ADFA49A9B7D0FD2 /* Frameworks */,
+				8CD998152E87B44C9108B5CD /* Pods */,
+				D688A9A198A3A01CCE020E5A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				D72096741D57E3C100563AFC /* iUOB 2.app */,
+				D75885761DB19160003F2C47 /* My Schedule.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,6 +192,7 @@
 		D72096761D57E3C100563AFC /* iUOB 2 */ = {
 			isa = PBXGroup;
 			children = (
+				D75885871DB1A846003F2C47 /* iUOB 2.entitlements */,
 				D720967B1D57E3C100563AFC /* Main.storyboard */,
 				D74B1A211D5E70F800D097EF /* Views */,
 				D71DB1B01D5A716500311999 /* Models */,
@@ -139,8 +207,21 @@
 			isa = PBXGroup;
 			children = (
 				D74B1A251D5E7C9B00D097EF /* TiimingCell.swift */,
+				D76D1D371DAAE5CE0072FCC8 /* CourseCVCell.swift */,
+				D7A9C0411DAC06940089021E /* CoursesCVHeader.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		D75885791DB19160003F2C47 /* My Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				D75885881DB1A890003F2C47 /* My Schedule.entitlements */,
+				D758857A1DB19160003F2C47 /* TodayViewController.swift */,
+				D758857C1DB19160003F2C47 /* MainInterface.storyboard */,
+				D758857F1DB19160003F2C47 /* Info.plist */,
+			);
+			path = "My Schedule";
 			sourceTree = "<group>";
 		};
 		D76D546E1D591440002FFA65 /* Supporting Files */ = {
@@ -177,6 +258,8 @@
 				D7A4CC961D8769E8006EA495 /* MapVC.swift */,
 				D7A4CC9A1D876A32006EA495 /* UsefulLinksVC.swift */,
 				D70162C41D88AF7D0005CBB3 /* AboutVC.swift */,
+				D764C0CC1D99B4E6008B8C38 /* MyScheduleVC.swift */,
+				D764C0CE1D99B504008B8C38 /* AddCoursesVC.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -188,21 +271,42 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D72096861D57E3C100563AFC /* Build configuration list for PBXNativeTarget "iUOB 2" */;
 			buildPhases = (
-				169FCE1ED4DE3BE3135AED6D /* Check Pods Manifest.lock */,
+				5BF8E41D24001730FB06B070 /* [CP] Check Pods Manifest.lock */,
 				D72096701D57E3C100563AFC /* Sources */,
 				D72096711D57E3C100563AFC /* Frameworks */,
 				D72096721D57E3C100563AFC /* Resources */,
-				D7CE763F3DE3483ADEA79231 /* Embed Pods Frameworks */,
-				90CE3A1B9DFDD29081CBB62B /* Copy Pods Resources */,
+				25CF386DD7B3D15C64FD1551 /* [CP] Embed Pods Frameworks */,
+				533103884339492D59199A50 /* [CP] Copy Pods Resources */,
+				D75885861DB19160003F2C47 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D75885811DB19160003F2C47 /* PBXTargetDependency */,
 			);
 			name = "iUOB 2";
 			productName = "iUOB 2";
 			productReference = D72096741D57E3C100563AFC /* iUOB 2.app */;
 			productType = "com.apple.product-type.application";
+		};
+		D75885751DB19160003F2C47 /* My Schedule */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D75885851DB19160003F2C47 /* Build configuration list for PBXNativeTarget "My Schedule" */;
+			buildPhases = (
+				8C871FC2456E63C231C92639 /* [CP] Check Pods Manifest.lock */,
+				D75885721DB19160003F2C47 /* Sources */,
+				D75885731DB19160003F2C47 /* Frameworks */,
+				D75885741DB19160003F2C47 /* Resources */,
+				D786AED5E3F88C0BC512318C /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "My Schedule";
+			productName = "My Schedule";
+			productReference = D75885761DB19160003F2C47 /* My Schedule.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -210,12 +314,32 @@
 		D720966C1D57E3C100563AFC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Miqdad Altaitoon";
 				TargetAttributes = {
 					D72096731D57E3C100563AFC = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = QTFR78KFVF;
+						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
+					};
+					D75885751DB19160003F2C47 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = QTFR78KFVF;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -233,6 +357,7 @@
 			projectRoot = "";
 			targets = (
 				D72096731D57E3C100563AFC /* iUOB 2 */,
+				D75885751DB19160003F2C47 /* My Schedule */,
 			);
 		};
 /* End PBXProject section */
@@ -250,32 +375,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D75885741DB19160003F2C47 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D758857E1DB19160003F2C47 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		169FCE1ED4DE3BE3135AED6D /* Check Pods Manifest.lock */ = {
+		25CF386DD7B3D15C64FD1551 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iUOB 2/Pods-iUOB 2-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		90CE3A1B9DFDD29081CBB62B /* Copy Pods Resources */ = {
+		533103884339492D59199A50 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,19 +416,49 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iUOB 2/Pods-iUOB 2-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D7CE763F3DE3483ADEA79231 /* Embed Pods Frameworks */ = {
+		5BF8E41D24001730FB06B070 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iUOB 2/Pods-iUOB 2-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8C871FC2456E63C231C92639 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D786AED5E3F88C0BC512318C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-My Schedule/Pods-My Schedule-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -305,6 +468,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7A9C0421DAC06940089021E /* CoursesCVHeader.swift in Sources */,
 				D76D54771D592288002FFA65 /* MenuController.swift in Sources */,
 				D71DB1B41D5A8A8700311999 /* Course.swift in Sources */,
 				D76D54711D591CEA002FFA65 /* CustomSideMenuController.swift in Sources */,
@@ -312,8 +476,10 @@
 				D71DB1AF1D5A716500311999 /* Department.swift in Sources */,
 				D76D54741D592125002FFA65 /* DepartmentsVC.swift in Sources */,
 				D74B1A1E1D5DD32A00D097EF /* Section.swift in Sources */,
+				D76D1D381DAAE5CE0072FCC8 /* CourseCVCell.swift in Sources */,
 				D71DB1B61D5A8D4200311999 /* UOBParser.swift in Sources */,
 				D7A4CC951D875CF6006EA495 /* IUOBConstants.swift in Sources */,
+				D764C0CD1D99B4E6008B8C38 /* MyScheduleVC.swift in Sources */,
 				D72096781D57E3C100563AFC /* AppDelegate.swift in Sources */,
 				D7A4CC971D8769E8006EA495 /* MapVC.swift in Sources */,
 				D708F1411D5BE37F00C6E7B3 /* TimingVC.swift in Sources */,
@@ -321,11 +487,33 @@
 				D70162C51D88AF7D0005CBB3 /* AboutVC.swift in Sources */,
 				D74920461D6008CF00B2B14D /* UOBAutoVC.swift in Sources */,
 				D7A4CC931D87568C006EA495 /* ScheduleBuilderVC.swift in Sources */,
+				D764C0CF1D99B504008B8C38 /* AddCoursesVC.swift in Sources */,
 				D71DB1B21D5A87B400311999 /* CoursesVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D75885721DB19160003F2C47 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D758858F1DB1B554003F2C47 /* Course.swift in Sources */,
+				D758858A1DB1B0AB003F2C47 /* Section.swift in Sources */,
+				D758858D1DB1B44B003F2C47 /* UOBParser.swift in Sources */,
+				D758858E1DB1B550003F2C47 /* Department.swift in Sources */,
+				D75885891DB1AD40003F2C47 /* IUOBConstants.swift in Sources */,
+				D758857B1DB19160003F2C47 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D75885811DB19160003F2C47 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D75885751DB19160003F2C47 /* My Schedule */;
+			targetProxy = D75885801DB19160003F2C47 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D720967B1D57E3C100563AFC /* Main.storyboard */ = {
@@ -342,6 +530,14 @@
 				D72096811D57E3C100563AFC /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D758857C1DB19160003F2C47 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D758857D1DB19160003F2C47 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -361,8 +557,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -407,8 +605,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -427,6 +627,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -434,36 +635,96 @@
 		};
 		D72096871D57E3C100563AFC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 66538A92E70501C7BDB4D483 /* Pods-iUOB 2.debug.xcconfig */;
+			baseConfigurationReference = 9E1BFE963C52B468A2EE88A5 /* Pods-iUOB 2.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "iUOB 2/iUOB 2.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = QTFR78KFVF;
 				INFOPLIST_FILE = "iUOB 2/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.muqdd.iUOB-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "dd71adeb-df62-40e3-8d44-3b82bae19e30";
+				PROVISIONING_PROFILE = "6f18d5d9-cdc3-414f-bdd6-48e04706f4bc";
+				PROVISIONING_PROFILE_SPECIFIER = "iUOB 2 Dev Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "iUOB 2/iUOB 2-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		D72096881D57E3C100563AFC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A8C784629B9DF07DE8183A37 /* Pods-iUOB 2.release.xcconfig */;
+			baseConfigurationReference = 6C212996D3F5EA0EA322700A /* Pods-iUOB 2.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "iUOB 2/iUOB 2.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = QTFR78KFVF;
 				INFOPLIST_FILE = "iUOB 2/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.muqdd.iUOB-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c6d7f329-a8c9-4cea-8e8d-6694362e45f6";
+				PROVISIONING_PROFILE = "8a379d66-fa08-4f06-b994-2d8b324b7f94";
+				PROVISIONING_PROFILE_SPECIFIER = "iUOB 2 Pro Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "iUOB 2/iUOB 2-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		D75885831DB19160003F2C47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B12E5FA83F9958CE9BF0027C /* Pods-My Schedule.debug.xcconfig */;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_ENTITLEMENTS = "My Schedule/My Schedule.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = QTFR78KFVF;
+				INFOPLIST_FILE = "My Schedule/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.muqdd.iUOB-2.My-Schedule";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3f5fa999-a5c0-450d-ab47-9c88555537ab";
+				PROVISIONING_PROFILE_SPECIFIER = "My Schedule Ext Dev Profile";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		D75885841DB19160003F2C47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 030C908AF6533A51DAD56D19 /* Pods-My Schedule.release.xcconfig */;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_ENTITLEMENTS = "My Schedule/My Schedule.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Miqdad Altaitoon (QTFR78KFVF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Miqdad Altaitoon (QTFR78KFVF)";
+				DEVELOPMENT_TEAM = QTFR78KFVF;
+				INFOPLIST_FILE = "My Schedule/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.muqdd.iUOB-2.My-Schedule";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "627929c8-f97f-45f3-800b-383b105f51e1";
+				PROVISIONING_PROFILE_SPECIFIER = "My Schedule Ext Pro Profile";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -484,6 +745,15 @@
 			buildConfigurations = (
 				D72096871D57E3C100563AFC /* Debug */,
 				D72096881D57E3C100563AFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D75885851DB19160003F2C47 /* Build configuration list for PBXNativeTarget "My Schedule" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D75885831DB19160003F2C47 /* Debug */,
+				D75885841DB19160003F2C47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

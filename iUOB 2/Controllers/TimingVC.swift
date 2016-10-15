@@ -36,30 +36,30 @@ class TimingVC: UITableViewController {
     func googleAnalytics() {
         
         if let tracker = GAI.sharedInstance().defaultTracker {
-            tracker.set(kGAIScreenName, value: NSStringFromClass(self.dynamicType).componentsSeparatedByString(".").last!)
-            let builder = GAIDictionaryBuilder.createScreenView()
-            tracker.send(builder.build() as [NSObject : AnyObject])
+            tracker.set(kGAIScreenName, value: NSStringFromClass(type(of: self)).components(separatedBy: ".").last!)
+            let builder: NSObject = GAIDictionaryBuilder.createScreenView().build()
+            tracker.send(builder as! [NSObject : AnyObject])
         }
     }
     
     /* function to set coustom view in nav bar title */
-    func setTitle(title:String, subtitle:String) -> UIView {
-        let titleLabel = UILabel(frame: CGRectMake(0, -2, 0, 0))
+    func setTitle(_ title:String, subtitle:String) -> UIView {
+        let titleLabel = UILabel(frame: CGRect(x: 0, y: -2, width: 0, height: 0))
         
-        titleLabel.backgroundColor = UIColor.clearColor()
-        titleLabel.textColor = UIColor.blackColor()
-        titleLabel.font = UIFont.boldSystemFontOfSize(17)
+        titleLabel.backgroundColor = UIColor.clear
+        titleLabel.textColor = UIColor.black
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
         titleLabel.text = title
         titleLabel.sizeToFit()
         
-        let subtitleLabel = UILabel(frame: CGRectMake(0, 18, 0, 0))
-        subtitleLabel.backgroundColor = UIColor.clearColor()
-        subtitleLabel.textColor = UIColor.redColor()
-        subtitleLabel.font = UIFont.boldSystemFontOfSize(12)
+        let subtitleLabel = UILabel(frame: CGRect(x: 0, y: 18, width: 0, height: 0))
+        subtitleLabel.backgroundColor = UIColor.clear
+        subtitleLabel.textColor = UIColor.red
+        subtitleLabel.font = UIFont.boldSystemFont(ofSize: 12)
         subtitleLabel.text = subtitle
         subtitleLabel.sizeToFit()
         
-        let titleView = UIView(frame: CGRectMake(0, 0, max(titleLabel.frame.size.width, subtitleLabel.frame.size.width), 30))
+        let titleView = UIView(frame: CGRect(x: 0, y: 0, width: max(titleLabel.frame.size.width, subtitleLabel.frame.size.width), height: 30))
         titleView.addSubview(titleLabel)
         titleView.addSubview(subtitleLabel)
         
@@ -68,11 +68,11 @@ class TimingVC: UITableViewController {
         if widthDiff > 0 {
             var frame = titleLabel.frame
             frame.origin.x = widthDiff / 2
-            titleLabel.frame = CGRectIntegral(frame)
+            titleLabel.frame = frame.integral
         } else {
             var frame = subtitleLabel.frame
             frame.origin.x = abs(widthDiff) / 2
-            titleLabel.frame = CGRectIntegral(frame)
+            titleLabel.frame = frame.integral
         }
         
         return titleView
@@ -82,12 +82,12 @@ class TimingVC: UITableViewController {
     
     func getSections() {
         
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        Alamofire.request(.GET, course.url, parameters: nil)
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        Alamofire.request(course.url, parameters: nil)
             .validate()
             .responseString { response in
                 
-                MBProgressHUD.hideHUDForView(self.view, animated: true)
+                MBProgressHUD.hide(for: self.view, animated: true)
                 
                 if response.result.error == nil {
 
@@ -123,7 +123,7 @@ class TimingVC: UITableViewController {
         
         let seatsURL = "\(Constants.baseURL)/cgi/enr/enr_sections?pcrsnbr=\(course.courseNo)&pcrsinlcde=\(course.departmentCode)&course_desp=MOKED"
         
-        Alamofire.request(.GET, seatsURL, parameters: nil)
+        Alamofire.request(seatsURL, parameters: nil)
             .validate()
             .responseString { response in
                 
@@ -140,18 +140,18 @@ class TimingVC: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sections.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TimeCell", forIndexPath: indexPath) as! TiimingCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TimeCell", for: indexPath) as! TiimingCell
         
         cell.preservesSuperviewLayoutMargins = false
-        cell.separatorInset = UIEdgeInsetsZero
-        cell.layoutMargins = UIEdgeInsetsZero
+        cell.separatorInset = UIEdgeInsets.zero
+        cell.layoutMargins = UIEdgeInsets.zero
         
-        let section = sections[indexPath.row]
+        let section = sections[(indexPath as NSIndexPath).row]
         
         cell.sectionNoLabel.text = section.sectionNo
         cell.doctorNameLabel.text = section.doctor
@@ -181,13 +181,13 @@ class TimingVC: UITableViewController {
         cell.timeLabel.text = times
         cell.roomLabel.text = rooms
         
-        cell.watchButton.tag = indexPath.row
-        cell.watchButton.addTarget(self, action: #selector(TimingVC.watchPressed(_:)), forControlEvents: .TouchUpInside)
+        cell.watchButton.tag = (indexPath as NSIndexPath).row
+        cell.watchButton.addTarget(self, action: #selector(TimingVC.watchPressed(_:)), for: .touchUpInside)
 
         return cell
     }
     
-    func watchPressed(sender: UIButton!) {
+    func watchPressed(_ sender: UIButton!) {
         // code for monitoring courses [for UOB Auto]
     }
 }

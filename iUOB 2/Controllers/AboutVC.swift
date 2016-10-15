@@ -21,18 +21,18 @@ class AboutVC: UIViewController, MFMailComposeViewControllerDelegate {
     func googleAnalytics() {
         
         if let tracker = GAI.sharedInstance().defaultTracker {
-            tracker.set(kGAIScreenName, value: NSStringFromClass(self.dynamicType).componentsSeparatedByString(".").last!)
-            let builder = GAIDictionaryBuilder.createScreenView()
-            tracker.send(builder.build() as [NSObject : AnyObject])
+            tracker.set(kGAIScreenName, value: NSStringFromClass(type(of: self)).components(separatedBy: ".").last!)
+            let builder: NSObject = GAIDictionaryBuilder.createScreenView().build()
+            tracker.send(builder as! [NSObject : AnyObject])
         }
     }
     
-    @IBAction func gitHubButton(sender: AnyObject) {
+    @IBAction func gitHubButton(_ sender: AnyObject) {
         
-        UIApplication.sharedApplication().openURL(NSURL(string: "https://github.com/moked/iuob")!)
+        UIApplication.shared.openURL(URL(string: "https://github.com/moked/iuob")!)
     }
 
-    @IBAction func emailButton(sender: AnyObject) {
+    @IBAction func emailButton(_ sender: AnyObject) {
         
         if !MFMailComposeViewController.canSendMail() {
             print("Mail services are not available")
@@ -44,16 +44,16 @@ class AboutVC: UIViewController, MFMailComposeViewControllerDelegate {
         composeVC.setToRecipients(["muqdd@hotmail.com"])
         composeVC.setSubject("iUOB 2")
         
-        self.presentViewController(composeVC, animated: true, completion: nil)
+        self.present(composeVC, animated: true, completion: nil)
     }
     
-    @IBAction func twitterButton(sender: AnyObject) {
+    @IBAction func twitterButton(_ sender: AnyObject) {
         
         let handle =  "muqdd"
-        let appURL = NSURL(string: "twitter://user?screen_name=\(handle)")!
-        let webURL = NSURL(string: "https://twitter.com/\(handle)")!
+        let appURL = URL(string: "twitter://user?screen_name=\(handle)")!
+        let webURL = URL(string: "https://twitter.com/\(handle)")!
         
-        let application = UIApplication.sharedApplication()
+        let application = UIApplication.shared
         
         if application.canOpenURL(appURL) {
             application.openURL(appURL)
@@ -62,13 +62,13 @@ class AboutVC: UIViewController, MFMailComposeViewControllerDelegate {
         }
     }
 
-    @IBAction func webButton(sender: AnyObject) {
+    @IBAction func webButton(_ sender: AnyObject) {
         
-        UIApplication.sharedApplication().openURL(NSURL(string: "http://iuob.net")!)
+        UIApplication.shared.openURL(URL(string: "http://muqdd.com")!)
     }
     
-    func mailComposeController(controller: MFMailComposeViewController,
-                               didFinishWithResult result: MFMailComposeResult, error: NSError?) {
-        controller.dismissViewControllerAnimated(true, completion: nil)
+    func mailComposeController(_ controller: MFMailComposeViewController,
+                               didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }
