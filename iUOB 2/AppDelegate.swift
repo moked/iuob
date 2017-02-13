@@ -26,12 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let gai = GAI.sharedInstance()
         gai?.trackUncaughtExceptions = true  // report uncaught exceptions
         
-
         /* Firabase */
-        //FIRApp.configure()
+        FIRApp.configure()
         
         /* Google Maps */
-        GMSServices.provideAPIKey("ADD_YOUR_KEY")
+        GMSServices.provideAPIKey("AIzaSyCK0kHb7PaGjK-u1sRqezcju0pGfhf9eKY")
         
         var isLaunchedFromQuickAction = false
         if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
@@ -66,6 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     enum Shortcut: String {
         case Myschedule = "Myschedule"
+        case Builder = "Builder"
         case Semesterschedule = "Semesterschedule"
         case Map = "Map"
     }
@@ -81,6 +81,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             case .Myschedule:
                 navigationController.performSegue(withIdentifier: "showStudentScheduleController", sender: nil)
                 quickActionHandled = true
+                
+            case .Builder:
+                navigationController.performSegue(withIdentifier: "showScheduleBuilderController", sender: nil)
+                quickActionHandled = true
+
                 
             case .Semesterschedule:
                 navigationController.performSegue(withIdentifier: "showCenterController", sender: nil)

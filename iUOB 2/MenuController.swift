@@ -10,12 +10,17 @@ import UIKit
 
 class MenuController: UITableViewController {
     
+    @IBOutlet weak var logoImageView: UIImageView!
+    
     let segues = ["showCenterController", "showStudentScheduleController", "showScheduleBuilderController", "showMapController", "showUsefulLinksController", "showAboutController"];
     let names = ["Semester Schedule", "My Schedule", "Schedule Builder", "UOB Map", "Useful Links", "About"]
     fileprivate var previousIndex: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        logoImageView.layer.cornerRadius = 16
+
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -12,8 +12,12 @@ import MessageUI
 
 class AboutVC: UIViewController, MFMailComposeViewControllerDelegate {
 
+    @IBOutlet weak var logoImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        logoImageView.layer.cornerRadius = 16
         
         googleAnalytics()
     }

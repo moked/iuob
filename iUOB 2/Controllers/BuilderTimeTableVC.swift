@@ -1,9 +1,9 @@
 //
-//  MyScheduleVC.swift
+//  BuilderTimeTableVC.swift
 //  iUOB 2
 //
-//  Created by Miqdad Altaitoon on 9/26/16.
-//  Copyright © 2016 Miqdad Altaitoon. All rights reserved.
+//  Created by Miqdad Altaitoon on 1/16/17.
+//  Copyright © 2017 Miqdad Altaitoon. All rights reserved.
 //
 
 import UIKit
@@ -12,18 +12,16 @@ import Kanna
 import MBProgressHUD
 import NYAlertViewController
 
-class MyScheduleVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-
+class BuilderTimeTableVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    
     // MARK: - Properties
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var courses: [String] = []
-    var sections: [String] = []
-    var mySections: [Section] = []  // user choosen sections
+    var mySections = [Section]()  // user choosen sections
     var cvSections: [Section] = []  // to appear on the collection view
     
-    let refresher = UIRefreshControl()
+    // here, some formatting
     
     // MARK: - Life Cycle
     
@@ -35,10 +33,7 @@ class MyScheduleVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
         layout?.sectionHeadersPinToVisibleBounds = true
         
-        self.collectionView!.alwaysBounceVertical = true
-        refresher.tintColor = UIColor.black
-        refresher.addTarget(self, action: #selector(loadData), for: .valueChanged)
-        collectionView!.addSubview(refresher)
+        createTimeTable()
     }
     
     func googleAnalytics() {
@@ -50,130 +45,7 @@ class MyScheduleVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         }
     }
     
-    func loadData() {
-        
-        if courses.count > 0 {
-            
-            mySections = []
-            cvSections = []
-
-            getNextCourseData(0, cache: false) // get without caching
-        } else {
-            stopRefresher()
-        }
-    }
-    
-    func stopRefresher() {
-        refresher.endRefreshing()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        mySections = []
-        cvSections = []
-
-        let data = Constants.getCoursesAndSections()
-        
-        courses = data.courses
-        sections = data.sections
-        
-        
-        if courses.count > 0 {
-            getNextCourseData(0, cache: true) // get first course
-        } else {
-            self.collectionView.reloadData()
-        }
-    }
-
-    func getNextCourseData(_ index: Int, cache: Bool) {
-        
-        let thisCourse = self.courses[index]
-        let seperate = thisCourse.index(thisCourse.endIndex, offsetBy: -3)  // last three characters represent the courseNo e.g 101 in ITCS101
-        
-        let courseNo = thisCourse.substring(from: seperate)
-        let department = thisCourse.substring(to: seperate)
-        var departmentCode = ""
-        
-        let url = "\(Constants.baseURL)/cgi/enr/schedule2.contentpage"
-        
-        if let dCode = Constants.depCodeMapping[department] {
-            departmentCode = dCode
-        } else {
-            
-            // skip this couse it is not a valid course
-            if index + 1 < self.courses.count {
-                self.getNextCourseData(index + 1, cache: cache)
-            } else {
-                // done
-                self.createTimeTable()
-            }
-        }
-        
-        var getLiveVersion = true  // in case there is no cache
-        
-        if cache {
-            // try getting html from user default first
-            
-            let defaults: UserDefaults = UserDefaults(suiteName: "group.com.muqdd.iuob")!
-            if let rawHTML = defaults.object(forKey: "\(self.courses[index])-\(self.sections[index])") as? String {
-                
-                getLiveVersion = false
-                self.parseResult(html: rawHTML, index: index, cache: cache, course: thisCourse)
-            }
-        }
-        
-        if !getLiveVersion {
-            return
-        }
-        
-        Alamofire.request(url, parameters: ["abv": department, "inl": "\(departmentCode)", "crsno": "\(courseNo)", "prog": "1", "crd": "3", "cyer": "2016", "csms": "1"])
-            .validate()
-            .responseString { response in
-                
-                if response.result.error == nil {
-                    
-                    let defaults: UserDefaults = UserDefaults(suiteName: "group.com.muqdd.iuob")!
-                    defaults.set(response.result.value!, forKey: "\(self.courses[index])-\(self.sections[index])")
-                    defaults.synchronize()
-                    
-                    self.parseResult(html: response.result.value!, index: index, cache: cache, course: thisCourse)
-                }
-        }
-    }
-    
-    
-    func parseResult(html: String, index: Int, cache: Bool, course: String) {
-        
-        let allSections = UOBParser.parseSections(html)
-        
-        if allSections.count > 0 {
-            
-            for section in allSections {
-                
-                if section.sectionNo == self.sections[index] {
-                    
-                    self.mySections.append(section)
-                    self.mySections[self.mySections.count - 1].note = course
-                    
-                    break
-                }
-            }
-            
-            // here man, load others recuresvly
-            if index + 1 < self.courses.count {
-                self.getNextCourseData(index + 1, cache: cache)
-            } else {
-                
-                self.createTimeTable()
-            }
-        }
-        
-    }
-    
     func createTimeTable() {
-        
-        stopRefresher()
         
         var sundays = [Section]()
         var mondays = [Section]()
@@ -223,7 +95,7 @@ class MyScheduleVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         tuesdays = tuesdays.sorted { $0.timing[0].timeFrom < $1.timing[0].timeFrom }
         wednesdays = wednesdays.sorted { $0.timing[0].timeFrom < $1.timing[0].timeFrom }
         thursdays = thursdays.sorted { $0.timing[0].timeFrom < $1.timing[0].timeFrom }
-
+        
         let counts = [sundays.count, mondays.count, tuesdays.count, wednesdays.count, thursdays.count]
         
         let emptySlot = Section.init(sectionNo: "", doctor: "", seats: "", timing: [Timing.init(day: "", timeFrom: "", timeTo: "", room: "")], note: "", finalExam: FinalExam.init(date: nil, startTime: "", endTime: ""))  // for collectionview cells that have no data
@@ -260,17 +132,16 @@ class MyScheduleVC: UIViewController, UICollectionViewDataSource, UICollectionVi
                 self.cvSections.append(emptySlot)
             }
         }
-
+        
         self.collectionView.reloadData()
     }
-
+    
     
     // MARK: - UICollectionViewDataSource protocol
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return cvSections.count
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -285,13 +156,13 @@ class MyScheduleVC: UIViewController, UICollectionViewDataSource, UICollectionVi
             courseCell.locationLabel.text = section.timing[0].room
             
             courseCell.backgroundColor = backgroaundColor(forCourse: section.note)
-
+            
         } else {
             courseCell.courseTitleLabel.text = ""
             courseCell.startTimeLabel.text = ""
             courseCell.endTimeLabel.text = ""
             courseCell.locationLabel.text = ""
-
+            
             courseCell.backgroundColor = UIColor.clear
         }
         
@@ -325,11 +196,11 @@ class MyScheduleVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView,
-                                 viewForSupplementaryElementOfKind kind: String,
-                                 at indexPath: IndexPath) -> UICollectionReusableView {
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
         
         switch kind {
-        
+            
         case UICollectionElementKindSectionHeader:
             
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
@@ -341,7 +212,7 @@ class MyScheduleVC: UIViewController, UICollectionViewDataSource, UICollectionVi
             headerView.wLabel.text = "W"
             headerView.hLabel.text = "H"
             
-        
+            
             return headerView
         default:
             
@@ -386,7 +257,7 @@ class MyScheduleVC: UIViewController, UICollectionViewDataSource, UICollectionVi
             handler: { (action: NYAlertAction?) -> Void in
                 self.dismiss(animated: true, completion: nil)
                 
-            }
+        }
         )
         
         alertViewController.addAction(cancelAction)
@@ -399,7 +270,7 @@ class MyScheduleVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-
+        
         let cellSize:CGSize = CGSize(width: collectionView.frame.width / 5 - 1, height: 84)
         
         return cellSize
@@ -411,21 +282,30 @@ class MyScheduleVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
             return
         }
-
+        
         flowLayout.itemSize = CGSize(width: self.view.bounds.size.width / 5 - 1, height: 84)
         
         flowLayout.invalidateLayout()
         
         self.collectionView.reloadData()
     }
+    
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-}
-
-extension String {
-    var asciiArray: [UInt32] {
-        return unicodeScalars.filter{$0.isASCII}.map{$0.value}
+        if segue.identifier == "ScheduleDetailsSegue" {
+            
+            let destinationNavigationController = segue.destination as! UINavigationController
+            let nextScene = destinationNavigationController.topViewController as? ScheduleDetailsVC
+            
+            nextScene!.sections = mySections
+        }
     }
+    
 }
+
 
 
 

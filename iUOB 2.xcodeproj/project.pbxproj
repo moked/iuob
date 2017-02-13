@@ -20,6 +20,9 @@
 		D720967D1D57E3C100563AFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D720967B1D57E3C100563AFC /* Main.storyboard */; };
 		D720967F1D57E3C100563AFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D720967E1D57E3C100563AFC /* Assets.xcassets */; };
 		D72096821D57E3C100563AFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D72096801D57E3C100563AFC /* LaunchScreen.storyboard */; };
+		D73154441E2BF5E100080E02 /* OptionsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73154431E2BF5E100080E02 /* OptionsListVC.swift */; };
+		D73154481E2C094D00080E02 /* BuilderOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73154471E2C094D00080E02 /* BuilderOptionCell.swift */; };
+		D731544A1E2C225900080E02 /* BuilderTimeTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73154491E2C225900080E02 /* BuilderTimeTableVC.swift */; };
 		D74920461D6008CF00B2B14D /* UOBAutoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74920451D6008CF00B2B14D /* UOBAutoVC.swift */; };
 		D74B1A1E1D5DD32A00D097EF /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74B1A1D1D5DD32A00D097EF /* Section.swift */; };
 		D74B1A261D5E7C9B00D097EF /* TiimingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74B1A251D5E7C9B00D097EF /* TiimingCell.swift */; };
@@ -38,11 +41,24 @@
 		D76D54711D591CEA002FFA65 /* CustomSideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D54701D591CEA002FFA65 /* CustomSideMenuController.swift */; };
 		D76D54741D592125002FFA65 /* DepartmentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D54731D592125002FFA65 /* DepartmentsVC.swift */; };
 		D76D54771D592288002FFA65 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D54761D592288002FFA65 /* MenuController.swift */; };
+		D79821751E07241400036B6F /* SectionsFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79821741E07241400036B6F /* SectionsFilterVC.swift */; };
+		D79821771E07474100036B6F /* SummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79821761E07474100036B6F /* SummaryVC.swift */; };
 		D7A4CC931D87568C006EA495 /* ScheduleBuilderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4CC921D87568C006EA495 /* ScheduleBuilderVC.swift */; };
 		D7A4CC951D875CF6006EA495 /* IUOBConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4CC941D875CF6006EA495 /* IUOBConstants.swift */; };
 		D7A4CC971D8769E8006EA495 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4CC961D8769E8006EA495 /* MapVC.swift */; };
 		D7A4CC9B1D876A32006EA495 /* UsefulLinksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4CC9A1D876A32006EA495 /* UsefulLinksVC.swift */; };
 		D7A9C0421DAC06940089021E /* CoursesCVHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A9C0411DAC06940089021E /* CoursesCVHeader.swift */; };
+		D7B892131E2D5B560085E10D /* ScheduleDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B892121E2D5B560085E10D /* ScheduleDetailsVC.swift */; };
+		D7D473831E04644800B42BEE /* Autocomplete.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7D4737A1E04644800B42BEE /* Autocomplete.storyboard */; };
+		D7D473841E04644800B42BEE /* Autocomplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D4737B1E04644800B42BEE /* Autocomplete.swift */; };
+		D7D473851E04644800B42BEE /* AutoCompleteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D4737C1E04644800B42BEE /* AutoCompleteCell.swift */; };
+		D7D473861E04644800B42BEE /* AutocompleteCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D4737D1E04644800B42BEE /* AutocompleteCellData.swift */; };
+		D7D473871E04644800B42BEE /* AutocompleteDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D4737E1E04644800B42BEE /* AutocompleteDelegate.swift */; };
+		D7D473881E04644800B42BEE /* AutoCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D4737F1E04644800B42BEE /* AutoCompleteViewController.swift */; };
+		D7D473891E04644800B42BEE /* DefaultAutoCompleteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7D473801E04644800B42BEE /* DefaultAutoCompleteCell.xib */; };
+		D7D4738A1E04644800B42BEE /* TableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D473811E04644800B42BEE /* TableViewDatasource.swift */; };
+		D7D4738B1E04644800B42BEE /* TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D473821E04644800B42BEE /* TableViewDelegate.swift */; };
+		D7D4738D1E04938800B42BEE /* OptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D4738C1E04938800B42BEE /* OptionsVC.swift */; };
 		D7D5FD601D5FC84B00DF9A7B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7D5FD5F1D5FC84B00DF9A7B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +106,9 @@
 		D720967E1D57E3C100563AFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D72096811D57E3C100563AFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D72096831D57E3C100563AFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D73154431E2BF5E100080E02 /* OptionsListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OptionsListVC.swift; path = Controllers/OptionsListVC.swift; sourceTree = "<group>"; };
+		D73154471E2C094D00080E02 /* BuilderOptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BuilderOptionCell.swift; path = Views/BuilderOptionCell.swift; sourceTree = "<group>"; };
+		D73154491E2C225900080E02 /* BuilderTimeTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BuilderTimeTableVC.swift; path = Controllers/BuilderTimeTableVC.swift; sourceTree = "<group>"; };
 		D74920451D6008CF00B2B14D /* UOBAutoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UOBAutoVC.swift; path = Controllers/UOBAutoVC.swift; sourceTree = "<group>"; };
 		D74B1A1D1D5DD32A00D097EF /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Section.swift; path = Models/Section.swift; sourceTree = "<group>"; };
 		D74B1A251D5E7C9B00D097EF /* TiimingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TiimingCell.swift; path = Views/TiimingCell.swift; sourceTree = "<group>"; };
@@ -107,11 +126,24 @@
 		D76D54701D591CEA002FFA65 /* CustomSideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomSideMenuController.swift; path = Navigation/CustomSideMenuController.swift; sourceTree = "<group>"; };
 		D76D54731D592125002FFA65 /* DepartmentsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DepartmentsVC.swift; path = Controllers/DepartmentsVC.swift; sourceTree = "<group>"; };
 		D76D54761D592288002FFA65 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		D79821741E07241400036B6F /* SectionsFilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectionsFilterVC.swift; path = Controllers/SectionsFilterVC.swift; sourceTree = "<group>"; };
+		D79821761E07474100036B6F /* SummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryVC.swift; path = Controllers/SummaryVC.swift; sourceTree = "<group>"; };
 		D7A4CC921D87568C006EA495 /* ScheduleBuilderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScheduleBuilderVC.swift; path = Controllers/ScheduleBuilderVC.swift; sourceTree = "<group>"; };
 		D7A4CC941D875CF6006EA495 /* IUOBConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IUOBConstants.swift; path = Models/IUOBConstants.swift; sourceTree = "<group>"; };
 		D7A4CC961D8769E8006EA495 /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapVC.swift; path = Controllers/MapVC.swift; sourceTree = "<group>"; };
 		D7A4CC9A1D876A32006EA495 /* UsefulLinksVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UsefulLinksVC.swift; path = Controllers/UsefulLinksVC.swift; sourceTree = "<group>"; };
 		D7A9C0411DAC06940089021E /* CoursesCVHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoursesCVHeader.swift; path = Views/CoursesCVHeader.swift; sourceTree = "<group>"; };
+		D7B892121E2D5B560085E10D /* ScheduleDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScheduleDetailsVC.swift; path = Controllers/ScheduleDetailsVC.swift; sourceTree = "<group>"; };
+		D7D4737A1E04644800B42BEE /* Autocomplete.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Autocomplete.storyboard; sourceTree = "<group>"; };
+		D7D4737B1E04644800B42BEE /* Autocomplete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Autocomplete.swift; sourceTree = "<group>"; };
+		D7D4737C1E04644800B42BEE /* AutoCompleteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoCompleteCell.swift; sourceTree = "<group>"; };
+		D7D4737D1E04644800B42BEE /* AutocompleteCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutocompleteCellData.swift; sourceTree = "<group>"; };
+		D7D4737E1E04644800B42BEE /* AutocompleteDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutocompleteDelegate.swift; sourceTree = "<group>"; };
+		D7D4737F1E04644800B42BEE /* AutoCompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoCompleteViewController.swift; sourceTree = "<group>"; };
+		D7D473801E04644800B42BEE /* DefaultAutoCompleteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefaultAutoCompleteCell.xib; sourceTree = "<group>"; };
+		D7D473811E04644800B42BEE /* TableViewDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDatasource.swift; sourceTree = "<group>"; };
+		D7D473821E04644800B42BEE /* TableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDelegate.swift; sourceTree = "<group>"; };
+		D7D4738C1E04938800B42BEE /* OptionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OptionsVC.swift; path = Controllers/OptionsVC.swift; sourceTree = "<group>"; };
 		D7D5FD5F1D5FC84B00DF9A7B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,6 +192,7 @@
 		D71DB1B01D5A716500311999 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D7D473791E04644800B42BEE /* AutoComplete */,
 				D71DB1AE1D5A716500311999 /* Department.swift */,
 				D71DB1B31D5A8A8700311999 /* Course.swift */,
 				D74B1A1D1D5DD32A00D097EF /* Section.swift */,
@@ -209,6 +242,7 @@
 				D74B1A251D5E7C9B00D097EF /* TiimingCell.swift */,
 				D76D1D371DAAE5CE0072FCC8 /* CourseCVCell.swift */,
 				D7A9C0411DAC06940089021E /* CoursesCVHeader.swift */,
+				D73154471E2C094D00080E02 /* BuilderOptionCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -250,11 +284,11 @@
 		D76D54751D59212C002FFA65 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D7C624151E030F2A005A33FE /* Schedule Builder */,
 				D76D54731D592125002FFA65 /* DepartmentsVC.swift */,
 				D71DB1B11D5A87B400311999 /* CoursesVC.swift */,
 				D708F1401D5BE37F00C6E7B3 /* TimingVC.swift */,
 				D74920451D6008CF00B2B14D /* UOBAutoVC.swift */,
-				D7A4CC921D87568C006EA495 /* ScheduleBuilderVC.swift */,
 				D7A4CC961D8769E8006EA495 /* MapVC.swift */,
 				D7A4CC9A1D876A32006EA495 /* UsefulLinksVC.swift */,
 				D70162C41D88AF7D0005CBB3 /* AboutVC.swift */,
@@ -262,6 +296,36 @@
 				D764C0CE1D99B504008B8C38 /* AddCoursesVC.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D7C624151E030F2A005A33FE /* Schedule Builder */ = {
+			isa = PBXGroup;
+			children = (
+				D7A4CC921D87568C006EA495 /* ScheduleBuilderVC.swift */,
+				D7D4738C1E04938800B42BEE /* OptionsVC.swift */,
+				D79821741E07241400036B6F /* SectionsFilterVC.swift */,
+				D79821761E07474100036B6F /* SummaryVC.swift */,
+				D73154431E2BF5E100080E02 /* OptionsListVC.swift */,
+				D73154491E2C225900080E02 /* BuilderTimeTableVC.swift */,
+				D7B892121E2D5B560085E10D /* ScheduleDetailsVC.swift */,
+			);
+			name = "Schedule Builder";
+			sourceTree = "<group>";
+		};
+		D7D473791E04644800B42BEE /* AutoComplete */ = {
+			isa = PBXGroup;
+			children = (
+				D7D4737A1E04644800B42BEE /* Autocomplete.storyboard */,
+				D7D4737B1E04644800B42BEE /* Autocomplete.swift */,
+				D7D4737C1E04644800B42BEE /* AutoCompleteCell.swift */,
+				D7D4737D1E04644800B42BEE /* AutocompleteCellData.swift */,
+				D7D4737E1E04644800B42BEE /* AutocompleteDelegate.swift */,
+				D7D4737F1E04644800B42BEE /* AutoCompleteViewController.swift */,
+				D7D473801E04644800B42BEE /* DefaultAutoCompleteCell.xib */,
+				D7D473811E04644800B42BEE /* TableViewDatasource.swift */,
+				D7D473821E04644800B42BEE /* TableViewDelegate.swift */,
+			);
+			path = AutoComplete;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,7 +379,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Miqdad Altaitoon";
 				TargetAttributes = {
 					D72096731D57E3C100563AFC = {
@@ -369,7 +433,9 @@
 			files = (
 				D72096821D57E3C100563AFC /* LaunchScreen.storyboard in Resources */,
 				D7D5FD601D5FC84B00DF9A7B /* GoogleService-Info.plist in Resources */,
+				D7D473831E04644800B42BEE /* Autocomplete.storyboard in Resources */,
 				D720967F1D57E3C100563AFC /* Assets.xcassets in Resources */,
+				D7D473891E04644800B42BEE /* DefaultAutoCompleteCell.xib in Resources */,
 				D720967D1D57E3C100563AFC /* Main.storyboard in Resources */,
 				D70D15AE1D899D7B00425B17 /* UOBLocations.plist in Resources */,
 			);
@@ -468,18 +534,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D79821751E07241400036B6F /* SectionsFilterVC.swift in Sources */,
+				D7D4738B1E04644800B42BEE /* TableViewDelegate.swift in Sources */,
 				D7A9C0421DAC06940089021E /* CoursesCVHeader.swift in Sources */,
 				D76D54771D592288002FFA65 /* MenuController.swift in Sources */,
+				D7D4738D1E04938800B42BEE /* OptionsVC.swift in Sources */,
 				D71DB1B41D5A8A8700311999 /* Course.swift in Sources */,
+				D731544A1E2C225900080E02 /* BuilderTimeTableVC.swift in Sources */,
 				D76D54711D591CEA002FFA65 /* CustomSideMenuController.swift in Sources */,
 				D74B1A261D5E7C9B00D097EF /* TiimingCell.swift in Sources */,
+				D73154481E2C094D00080E02 /* BuilderOptionCell.swift in Sources */,
+				D7D473841E04644800B42BEE /* Autocomplete.swift in Sources */,
 				D71DB1AF1D5A716500311999 /* Department.swift in Sources */,
 				D76D54741D592125002FFA65 /* DepartmentsVC.swift in Sources */,
+				D7D473871E04644800B42BEE /* AutocompleteDelegate.swift in Sources */,
 				D74B1A1E1D5DD32A00D097EF /* Section.swift in Sources */,
+				D7D473861E04644800B42BEE /* AutocompleteCellData.swift in Sources */,
+				D7D4738A1E04644800B42BEE /* TableViewDatasource.swift in Sources */,
+				D7B892131E2D5B560085E10D /* ScheduleDetailsVC.swift in Sources */,
+				D73154441E2BF5E100080E02 /* OptionsListVC.swift in Sources */,
 				D76D1D381DAAE5CE0072FCC8 /* CourseCVCell.swift in Sources */,
+				D7D473881E04644800B42BEE /* AutoCompleteViewController.swift in Sources */,
 				D71DB1B61D5A8D4200311999 /* UOBParser.swift in Sources */,
 				D7A4CC951D875CF6006EA495 /* IUOBConstants.swift in Sources */,
+				D7D473851E04644800B42BEE /* AutoCompleteCell.swift in Sources */,
 				D764C0CD1D99B4E6008B8C38 /* MyScheduleVC.swift in Sources */,
+				D79821771E07474100036B6F /* SummaryVC.swift in Sources */,
 				D72096781D57E3C100563AFC /* AppDelegate.swift in Sources */,
 				D7A4CC971D8769E8006EA495 /* MapVC.swift in Sources */,
 				D708F1411D5BE37F00C6E7B3 /* TimingVC.swift in Sources */,

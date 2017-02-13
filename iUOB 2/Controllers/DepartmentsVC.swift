@@ -32,6 +32,7 @@ class DepartmentsVC: UITableViewController {
         
         SideMenuController.preferences.drawing.sidePanelWidth = 300
         SideMenuController.preferences.drawing.centerPanelShadow = true
+        
         SideMenuController.preferences.animating.statusBarBehaviour = .horizontalPan
         SideMenuController.preferences.animating.transitionAnimator = FadeAnimator.self
         
@@ -44,7 +45,7 @@ class DepartmentsVC: UITableViewController {
         googleAnalytics()
         registerForPush()
         
-        let items = ["2016/1"]  // will add an algorithm to determine the semester later
+        let items = ["2016/2"]  // will add an algorithm to determine the semester later
         
         menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: items[0], items: items as [AnyObject])
         menuView.arrowTintColor = UIColor.black
@@ -84,7 +85,7 @@ class DepartmentsVC: UITableViewController {
         let url = "\(Constants.baseURL)/cgi/enr/schedule2.abrv"
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
-        Alamofire.request(url, method: .get, parameters: ["prog": "1", "cyer": "2016", "csms": "1"])    // this shouldn't be hard coded
+        Alamofire.request(url, method: .get, parameters: ["prog": "1", "cyer": "2016", "csms": "2"])    // this shouldn't be hard coded
             .validate()
             .responseString { response in
                 
