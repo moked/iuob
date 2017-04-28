@@ -12,6 +12,7 @@ import BTNavigationDropdownMenu
 import Alamofire
 import Kanna
 import MBProgressHUD
+import NYAlertViewController
 
 class DepartmentsVC: UITableViewController {
 
@@ -99,6 +100,7 @@ class DepartmentsVC: UITableViewController {
                     
                 } else {
                     print("error man")
+                    self.showAlert(title: "Error", msg: (response.result.error?.localizedDescription)!)
                 }
         }
     }
@@ -132,6 +134,39 @@ class DepartmentsVC: UITableViewController {
         }
         
         self.tableView.reloadData()
+    }
+    
+    func showAlert(title: String, msg: String) {
+        
+        let alertViewController = NYAlertViewController()
+        
+        alertViewController.title = title
+        alertViewController.message = msg
+        
+        alertViewController.buttonCornerRadius = 20.0
+        alertViewController.view.tintColor = self.view.tintColor
+        
+        //alertViewController.cancelButtonColor = UIColor.redColor()
+        alertViewController.destructiveButtonColor = UIColor(netHex:0xFFA739)
+        
+        alertViewController.swipeDismissalGestureEnabled = true
+        alertViewController.backgroundTapDismissalGestureEnabled = true
+        
+        
+        let cancelAction = NYAlertAction(
+            title: "Close",
+            style: .cancel,
+            handler: { (action: NYAlertAction?) -> Void in
+                self.dismiss(animated: true, completion: nil)
+                
+        }
+        )
+        
+        alertViewController.addAction(cancelAction)
+        
+        
+        // Present the alert view controller
+        self.present(alertViewController, animated: true, completion: nil)
     }
     
     // MARK: - Table view data source

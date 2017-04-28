@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// filter by section / doctor
 class SectionsFilterVC: UITableViewController {
 
     // MARK: - Properties

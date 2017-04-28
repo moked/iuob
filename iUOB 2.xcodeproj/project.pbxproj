@@ -48,6 +48,7 @@
 		D7A4CC971D8769E8006EA495 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4CC961D8769E8006EA495 /* MapVC.swift */; };
 		D7A4CC9B1D876A32006EA495 /* UsefulLinksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4CC9A1D876A32006EA495 /* UsefulLinksVC.swift */; };
 		D7A9C0421DAC06940089021E /* CoursesCVHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A9C0411DAC06940089021E /* CoursesCVHeader.swift */; };
+		D7B293431EB3BEC5006A48EF /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B293421EB3BEC5006A48EF /* Config.swift */; };
 		D7B892131E2D5B560085E10D /* ScheduleDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B892121E2D5B560085E10D /* ScheduleDetailsVC.swift */; };
 		D7D473831E04644800B42BEE /* Autocomplete.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7D4737A1E04644800B42BEE /* Autocomplete.storyboard */; };
 		D7D473841E04644800B42BEE /* Autocomplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D4737B1E04644800B42BEE /* Autocomplete.swift */; };
@@ -106,9 +107,9 @@
 		D720967E1D57E3C100563AFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D72096811D57E3C100563AFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D72096831D57E3C100563AFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D73154431E2BF5E100080E02 /* OptionsListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OptionsListVC.swift; path = Controllers/OptionsListVC.swift; sourceTree = "<group>"; };
+		D73154431E2BF5E100080E02 /* OptionsListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsListVC.swift; sourceTree = "<group>"; };
 		D73154471E2C094D00080E02 /* BuilderOptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BuilderOptionCell.swift; path = Views/BuilderOptionCell.swift; sourceTree = "<group>"; };
-		D73154491E2C225900080E02 /* BuilderTimeTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BuilderTimeTableVC.swift; path = Controllers/BuilderTimeTableVC.swift; sourceTree = "<group>"; };
+		D73154491E2C225900080E02 /* BuilderTimeTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuilderTimeTableVC.swift; sourceTree = "<group>"; };
 		D74920451D6008CF00B2B14D /* UOBAutoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UOBAutoVC.swift; path = Controllers/UOBAutoVC.swift; sourceTree = "<group>"; };
 		D74B1A1D1D5DD32A00D097EF /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Section.swift; path = Models/Section.swift; sourceTree = "<group>"; };
 		D74B1A251D5E7C9B00D097EF /* TiimingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TiimingCell.swift; path = Views/TiimingCell.swift; sourceTree = "<group>"; };
@@ -126,14 +127,15 @@
 		D76D54701D591CEA002FFA65 /* CustomSideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomSideMenuController.swift; path = Navigation/CustomSideMenuController.swift; sourceTree = "<group>"; };
 		D76D54731D592125002FFA65 /* DepartmentsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DepartmentsVC.swift; path = Controllers/DepartmentsVC.swift; sourceTree = "<group>"; };
 		D76D54761D592288002FFA65 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
-		D79821741E07241400036B6F /* SectionsFilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectionsFilterVC.swift; path = Controllers/SectionsFilterVC.swift; sourceTree = "<group>"; };
-		D79821761E07474100036B6F /* SummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryVC.swift; path = Controllers/SummaryVC.swift; sourceTree = "<group>"; };
-		D7A4CC921D87568C006EA495 /* ScheduleBuilderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScheduleBuilderVC.swift; path = Controllers/ScheduleBuilderVC.swift; sourceTree = "<group>"; };
+		D79821741E07241400036B6F /* SectionsFilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionsFilterVC.swift; sourceTree = "<group>"; };
+		D79821761E07474100036B6F /* SummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryVC.swift; sourceTree = "<group>"; };
+		D7A4CC921D87568C006EA495 /* ScheduleBuilderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleBuilderVC.swift; sourceTree = "<group>"; };
 		D7A4CC941D875CF6006EA495 /* IUOBConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IUOBConstants.swift; path = Models/IUOBConstants.swift; sourceTree = "<group>"; };
 		D7A4CC961D8769E8006EA495 /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapVC.swift; path = Controllers/MapVC.swift; sourceTree = "<group>"; };
 		D7A4CC9A1D876A32006EA495 /* UsefulLinksVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UsefulLinksVC.swift; path = Controllers/UsefulLinksVC.swift; sourceTree = "<group>"; };
 		D7A9C0411DAC06940089021E /* CoursesCVHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoursesCVHeader.swift; path = Views/CoursesCVHeader.swift; sourceTree = "<group>"; };
-		D7B892121E2D5B560085E10D /* ScheduleDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScheduleDetailsVC.swift; path = Controllers/ScheduleDetailsVC.swift; sourceTree = "<group>"; };
+		D7B293421EB3BEC5006A48EF /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Config.swift; path = Models/Config.swift; sourceTree = "<group>"; };
+		D7B892121E2D5B560085E10D /* ScheduleDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDetailsVC.swift; sourceTree = "<group>"; };
 		D7D4737A1E04644800B42BEE /* Autocomplete.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Autocomplete.storyboard; sourceTree = "<group>"; };
 		D7D4737B1E04644800B42BEE /* Autocomplete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Autocomplete.swift; sourceTree = "<group>"; };
 		D7D4737C1E04644800B42BEE /* AutoCompleteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoCompleteCell.swift; sourceTree = "<group>"; };
@@ -143,7 +145,7 @@
 		D7D473801E04644800B42BEE /* DefaultAutoCompleteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefaultAutoCompleteCell.xib; sourceTree = "<group>"; };
 		D7D473811E04644800B42BEE /* TableViewDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDatasource.swift; sourceTree = "<group>"; };
 		D7D473821E04644800B42BEE /* TableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDelegate.swift; sourceTree = "<group>"; };
-		D7D4738C1E04938800B42BEE /* OptionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OptionsVC.swift; path = Controllers/OptionsVC.swift; sourceTree = "<group>"; };
+		D7D4738C1E04938800B42BEE /* OptionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsVC.swift; sourceTree = "<group>"; };
 		D7D5FD5F1D5FC84B00DF9A7B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -198,6 +200,7 @@
 				D74B1A1D1D5DD32A00D097EF /* Section.swift */,
 				D71DB1B51D5A8D4200311999 /* UOBParser.swift */,
 				D7A4CC941D875CF6006EA495 /* IUOBConstants.swift */,
+				D7B293421EB3BEC5006A48EF /* Config.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				D7B892121E2D5B560085E10D /* ScheduleDetailsVC.swift */,
 			);
 			name = "Schedule Builder";
+			path = "Controllers/Schedule Builder";
 			sourceTree = "<group>";
 		};
 		D7D473791E04644800B42BEE /* AutoComplete */ = {
@@ -563,6 +567,7 @@
 				D72096781D57E3C100563AFC /* AppDelegate.swift in Sources */,
 				D7A4CC971D8769E8006EA495 /* MapVC.swift in Sources */,
 				D708F1411D5BE37F00C6E7B3 /* TimingVC.swift in Sources */,
+				D7B293431EB3BEC5006A48EF /* Config.swift in Sources */,
 				D7A4CC9B1D876A32006EA495 /* UsefulLinksVC.swift in Sources */,
 				D70162C51D88AF7D0005CBB3 /* AboutVC.swift in Sources */,
 				D74920461D6008CF00B2B14D /* UOBAutoVC.swift in Sources */,

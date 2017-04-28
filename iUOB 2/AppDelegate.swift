@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         
         /* Google Maps */
-        GMSServices.provideAPIKey("AIzaSyCK0kHb7PaGjK-u1sRqezcju0pGfhf9eKY")
+        GMSServices.provideAPIKey(Config.Key.GOOGLE_API)
         
         var isLaunchedFromQuickAction = false
         if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {

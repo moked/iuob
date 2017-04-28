@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+/// courses input class
 class ScheduleBuilderVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
     // MARK: - Properties

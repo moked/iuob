@@ -12,6 +12,7 @@ import Kanna
 import MBProgressHUD
 import NYAlertViewController
 
+/// show time table just like my shcedule
 class BuilderTimeTableVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     // MARK: - Properties

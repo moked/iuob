@@ -10,13 +10,15 @@ import UIKit
 import NYAlertViewController
 import MBProgressHUD
 
+
+/// all magic here. find the true number of combinations between the courses
 class SummaryVC: UIViewController {
 
     // MARK: - Properties
     
     var filteredCourseSectionDict = [String: [Section]]()
     
-    var sectionCombination = [[Section]]()
+    var sectionCombination = [[Section]]()  /// all sections
 
     @IBOutlet weak var schedulesFoundLabel: UILabel!
     @IBOutlet weak var nextButtonOutlet: UIBarButtonItem!
@@ -42,17 +44,39 @@ class SummaryVC: UIViewController {
         }
     }
 
+    /**
+     this function do everything, but it should be refactored for more efficencey + readablilty
+     
+     example of what this algorithm do:
+     let say we have 3 courses which have 3, 2, 5 section respectivly:
+     
+     course [0]: [0][1][2]
+     course [1]: [0][1]
+     course [2]: [0][1][2][3][4]
+     
+     we will have (3 * 2 * 5 = 30) possible combinations between them.
+     so insted of going through all sections recuresvly, I refactured the recurseve function into an iteration loop which is much faster.
+     in order to do it, we need 2 arrays. On to store the current indeces that we have. And the other one to store the actual size for each of the sections array.
+     
+     It will go like this:
+     comb 1: [0][0][0]
+     comb 2: [0][0][1]
+     comb 3: [0][0][2]
+     ...
+     comb 30: [2][1][4]
+
+     */
     func builderAlgorithm() {
         
         self.schedulesFoundLabel.text = "Calculating..."
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
         
-        DispatchQueue.global(qos: .background).async {  // do calc in background thread
+        DispatchQueue.global(qos: .background).async {  // do calucaltion in background thread
             
             var allCombinationCount = 1 // all possible combination to iterate through
             var indicesArray:[Int] = [] // array to store current indeces for each of the course' sections
-            var indicesSizeArray:[Int] = [] // array to store size for each of the course' sections
+            var indicesSizeArray:[Int] = [] // array to store the true size for each of the course' sections
             
             let lazyMapCollection = self.filteredCourseSectionDict.keys
             let keysArray = Array(lazyMapCollection.map { String($0)! })
@@ -61,11 +85,11 @@ class SummaryVC: UIViewController {
             for i in 0..<keysArray.count {
                 
                 allCombinationCount *= self.filteredCourseSectionDict[keysArray[i]]!.count
-                indicesArray.append(0) // init
+                indicesArray.append(0) // init. zero index for all courses/sections
                 indicesSizeArray.append(self.filteredCourseSectionDict[keysArray[i]]!.count) // init sizes
             }
             
-            /* fo through all possible combinations */
+            /* go through all possible combinations */
             for _ in 0..<allCombinationCount {
                 
                 var sectionsToCompare: [Section] = []   // reset each time
@@ -118,9 +142,11 @@ class SummaryVC: UIViewController {
                                                 let sectionBEndTime = Float(Float(timeEndArrB[0])! + (Float(timeEndArrB[1])! / 60.0))
                                                 
                                                 if (sectionAStartTime >= sectionBStartTime && sectionAStartTime <= sectionBEndTime) ||
-                                                    (sectionAEndTime >= sectionBStartTime && sectionAEndTime <= sectionBEndTime) {
+                                                    (sectionAEndTime >= sectionBStartTime && sectionAEndTime <= sectionBEndTime) ||
+                                                    (sectionBStartTime >= sectionAStartTime && sectionBStartTime <= sectionAEndTime) ||
+                                                    (sectionBEndTime >= sectionAStartTime && sectionBEndTime <= sectionAEndTime) {
                                                     
-                                                    // if start or end time is between other lectures times -> clash
+                                                    // if start or end time is between other lectures times -> CLASH
                                                     
                                                     isSectionClash = true
                                                 }

@@ -127,7 +127,7 @@ class MyScheduleVC: UIViewController, UICollectionViewDataSource, UICollectionVi
             return
         }
         
-        Alamofire.request(url, parameters: ["abv": department, "inl": "\(departmentCode)", "crsno": "\(courseNo)", "prog": "1", "crd": "3", "cyer": "2016", "csms": "1"])
+        Alamofire.request(url, parameters: ["abv": department, "inl": "\(departmentCode)", "crsno": "\(courseNo)", "prog": "1", "crd": "3", "cyer": "2016", "csms": "2"])
             .validate()
             .responseString { response in
                 

@@ -12,6 +12,7 @@ import Kanna
 import MBProgressHUD
 import NYAlertViewController
 
+/// first load all courses data. then, options filters: time and sections
 class OptionsVC: UIViewController {
     
     // MARK: - Properties
@@ -28,7 +29,7 @@ class OptionsVC: UIViewController {
     
     @IBOutlet weak var nextButtonOutlet: UIBarButtonItem!
     
-    var addedCourses: [String] = []    // added courses
+    var addedCourses: [String] = []    // added courses by the user
     var semester: Int = 0
     
     var courseSectionDict = [String: [Section]]()   // source of all sctions
@@ -81,6 +82,7 @@ class OptionsVC: UIViewController {
         sectionsFilterOutlet.isEnabled = true
     }
 
+    /// first, get department url to check if this semester available or not
     func getDepartments() {
         
         let url = "\(Constants.baseURL)/cgi/enr/schedule2.abrv"
@@ -112,6 +114,9 @@ class OptionsVC: UIViewController {
     }
     
     
+    /// function to get all courses recuresvly
+    ///
+    /// - Parameter index: course index
     func getNextCourseData(_ index: Int) {
         
         let thisCourse = addedCourses[index]
@@ -146,7 +151,7 @@ class OptionsVC: UIViewController {
         
         for section in UOBParser.parseSections(html) {
             
-            if section.timing.count > 0 {   // if it has a time (some sections come without time e.g for COE)
+            if section.timing.count > 0 {   // if it has a time (some sections come without time e.g for College of education)
                 
                 var sec = section
                 sec.note = course
@@ -172,6 +177,7 @@ class OptionsVC: UIViewController {
         }
     }
     
+    /// check if there is final exam clash between any 2 courses and alert the user
     func checkForFinalExamClashes() {
         
         let lazyMapCollection = courseSectionDict.keys
@@ -195,11 +201,15 @@ class OptionsVC: UIViewController {
         }
     }
     
+    /// stupid function name. we just store the original courses/sections for later use
     func createTimeTable() {
         
         filteredCourseSectionDict = courseSectionDict
     }
     
+    /// function will be called whenever the user change one of the options
+    ///
+    /// - Parameter sender: option segment control
     @IBAction func segmetChangeEvent(_ sender: UISegmentedControl) {
         
         if filterChanged {

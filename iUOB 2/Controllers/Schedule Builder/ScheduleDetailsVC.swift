@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+/// details of the option + ability to share
 class ScheduleDetailsVC: UIViewController {
 
     var sections = [Section]()  // user choosen sections
